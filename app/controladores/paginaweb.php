@@ -2,7 +2,7 @@
     class Paginaweb extends Controlador{
 
         public function __construct(){
-            $this->exampleModel = $this->modelo('Example');
+            $this->usuario = $this->modelo('Usuario');
         }
 
         public function index(){
@@ -29,11 +29,20 @@
                 $apellido = $_POST['apellido'];
                 $usuario = $_POST['usuario'];
                 $email = $_POST['email'];
-                $contraseña = $_POST['pass'];
-
-                header('Location:'.RUTA_URL.'/paginaweb/entrar');
+                $password = $_POST['pass'];
+                $datos = $this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password);
+                
+                
+                if($this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password)){
+                    header('Location:'.RUTA_URL.'/paginaweb/entrar');
+                } else {
+                    header('Location:'.RUTA_URL.'/paginaweb/registrar');
+                }
             } else {
                 //algo
             }
+
+
+
         }
     }

@@ -1,4 +1,13 @@
 <div class="container">
+
+<?php
+
+    if(!empty($datos)){
+        foreach($datos as $dato){
+            echo '<p>'.$dato.'</p>';
+        }
+    }
+?>
     <div class="row form-registrar">
         <form action="<?php echo RUTA_URL?>/paginaweb/registrar_usuario" method="POST" class="col s6 m6 offset-m3 card">
             <div class="row card-content">
@@ -19,7 +28,7 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate" name="email">
+                    <input id="email" type="text"  name="email">
                     <label for="email">Email</label>
                 </div>
 

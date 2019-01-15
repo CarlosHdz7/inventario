@@ -20,6 +20,7 @@
             try{
                 $this->conexion = new PDO($dsn, $this->usuario, $this->password, $opciones);
                 $this->conexion->exec('set names utf8');
+
             } catch (PDOException $e){
                 $this->error = $e->getMessage();
                 echo $this->error;
@@ -30,7 +31,32 @@
             $this->statement = $this->conexion->prepare($sql);
         }
 
-        public function bind(){
-            
+        public function bind($parametro, $valor, $tipo = null){
+            if(is_null($tipo)){
+                switch(true){
+                    case is_int($valor):
+                        $tipo = PDO::PARAM_INT;
+                    break;
+
+                    case is_bool($valor):
+                        $tipo = PDO::PARAM_BOOL;
+                    break;
+
+                    case is_null($valor):
+                        $tipo = PDO::PARAM_NULL;
+                    break;
+
+                    default:
+                        $tipo = PDO::PARAM_STR;
+                    break;
+                }
+            }
+            $this->statement->bindValue($parametro, $valor, $tipo);
         }
+
+        public function execute(){
+            return $this->statement->execute();
+        }
+
+
     }
