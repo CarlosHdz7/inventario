@@ -9,3 +9,7 @@
         require_once 'librerias/'. $nombreClase.'.php';
     });
     //NOTA: el nombre dentro de la clase debe conrresponder con el nombre del archivo
+
+    //Cargar helper
+    require_once 'helpers/url_helper.php';
+    require_once 'helpers/encriptar_helper.php';

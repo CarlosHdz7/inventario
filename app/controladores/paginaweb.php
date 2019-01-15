@@ -26,19 +26,39 @@
         public function registrar_usuario(){
 
             if($_SERVER['REQUEST_METHOD'] ==  "POST"){
-                $nombre = $_POST['nombre'];
-                $apellido = $_POST['apellido'];
-                $usuario = $_POST['usuario'];
-                $email = $_POST['email'];
-                $password = $_POST['pass'];
+                 
+                $nombre   = trim($_POST['nombre']);
+                $apellido = trim($_POST['apellido']);
+                $usuario  = trim($_POST['usuario']);
+                $email    = trim($_POST['email']);
+                $password = trim($_POST['pass']);
+                $password = encriptar($password);
                 
-                if($this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password)){
-                    header('Location:'.RUTA_URL.'/paginaweb/entrar');
+                if($nombre == "" || $apellido == "" || $usuario == "" || $email == "" || $password == ""){
+                    $datos = [
+                        'error' => "Debe llenar todos los campos"
+                    ];
+
+                    $this->vista('paginaweb/header');
+                    $this->vista('paginaweb/registrar',$datos);
+                    $this->vista('paginaweb/footer');
+
                 } else {
-                    header('Location:'.RUTA_URL.'/paginaweb/registrar');
+                    
+                    if($this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password)){
+                        $datos = [
+                            "exito" => "Usuario registrado con exito!"
+                        ];
+                        
+                        $this->vista('paginaweb/header');
+                        $this->vista('paginaweb/entrar',$datos);
+                        $this->vista('paginaweb/footer');
+                    } else {
+                        header('Location:'.RUTA_URL.'/paginaweb/registrar');
+                    }
+
                 }
-            } else {
-                //algo
-            }
+            } 
         }
-    }
+
+    }//fin de la clase

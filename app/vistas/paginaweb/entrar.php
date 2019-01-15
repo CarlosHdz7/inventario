@@ -17,6 +17,11 @@
                     <i class="material-icons right">send</i>
                 </button>
             </div>
+            <?php
+                if(!empty($datos)){
+                    echo "<p class='exito-mensaje teal lighten-2 teal-text text-lighten-5'>".$datos['exito']."</p>";
+                }
+            ?>
         </form>
     </div>
 </div>

@@ -1,3 +1,7 @@
 .form-registrar,.form-entrar{
     margin-top: 30px;
 }
+
+.error-mensaje, .exito-mensaje{
+    padding: 3px;
+}
