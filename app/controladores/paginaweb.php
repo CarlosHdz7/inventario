@@ -24,14 +24,13 @@
         }
 
         public function registrar_usuario(){
+
             if($_SERVER['REQUEST_METHOD'] ==  "POST"){
                 $nombre = $_POST['nombre'];
                 $apellido = $_POST['apellido'];
                 $usuario = $_POST['usuario'];
                 $email = $_POST['email'];
                 $password = $_POST['pass'];
-                $datos = $this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password);
-                
                 
                 if($this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password)){
                     header('Location:'.RUTA_URL.'/paginaweb/entrar');
@@ -41,8 +40,5 @@
             } else {
                 //algo
             }
-
-
-
         }
     }
