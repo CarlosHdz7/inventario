@@ -1,6 +1,6 @@
 <?php
     class Core{
-        protected $controladorDefault = 'welcome';
+        protected $controladorDefault = 'paginaweb';
         protected $metodoDefault      = 'index';
         protected $parametrosDefault   = [];
 
