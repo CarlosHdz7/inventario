@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,400" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="<?php echo RUTA_URL?>/css/styles.css"></link>
-
     
     <title><?php echo NOMBRE_SITIO; ?></title>
 </head>
@@ -31,6 +30,7 @@
         <li><a href="#" class="btn-registrar">Registrar</a></li>
         <li><a href="#" class="btn-entrar">Entrar</a></li>
     </ul>
+
 
 
 
