@@ -2,7 +2,7 @@
     <div class="row form-registrar">
         <form action="<?php echo RUTA_URL?>/paginaweb/registrar_usuario" method="POST" class="col s6 m6 offset-m3 card">
             <div class="row card-content">
-
+                <span class="card-title">Registrarse</span>
                 <div class="input-field col s6">
                     <input id="nombre" type="text" class="validate" name="nombre">
                     <label for="nombre">Nombre</label>
@@ -28,13 +28,13 @@
                     <label for="password">Contraseña</label>
                 </div>
 
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
                     <i class="material-icons right">send</i>
                 </button>
             </div>
             <?php
                 if(!empty($datos)){
-                    echo "<p class='error-mensaje pink accent-3 pink-text text-lighten-5'>".$datos['exito']."</p>";
+                    echo "<p class='error-mensaje pink accent-3 pink-text text-lighten-5'>".$datos['error']."</p>";
                 }
             ?>
         </form>

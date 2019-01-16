@@ -24,4 +24,12 @@
             }
 
         }
+
+        public function verificar_usuario($usuario){
+            $this->db->query("SELECT * FROM usuarios WHERE usuario=:usuario");
+            $this->db->bind(':usuario',$usuario);
+            return $this->db->obtenerRegistro();
+        }
     }
+
+    

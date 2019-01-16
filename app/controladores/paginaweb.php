@@ -32,7 +32,6 @@
                 $usuario  = trim($_POST['usuario']);
                 $email    = trim($_POST['email']);
                 $password = trim($_POST['pass']);
-                $password = encriptar($password);
                 
                 if($nombre == "" || $apellido == "" || $usuario == "" || $email == "" || $password == ""){
                     $datos = [
@@ -44,19 +43,30 @@
                     $this->vista('paginaweb/footer');
 
                 } else {
-                    
-                    if($this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password)){
+                    $usuarioDB = $this->usuario->verificar_usuario($usuario);
+                    if($usuarioDB['usuario'] != $usuario){
+                        
+                        $password = encriptar($password);
+                        if($this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password)){
+                            $datos = [
+                                "exito" => "Usuario registrado con exito!"
+                            ];
+                            
+                            $this->vista('paginaweb/header');
+                            $this->vista('paginaweb/entrar',$datos);
+                            $this->vista('paginaweb/footer');
+                        } else {
+                            header('Location:'.RUTA_URL.'/paginaweb/registrar');
+                        }
+                    } else {
                         $datos = [
-                            "exito" => "Usuario registrado con exito!"
+                            "error" => "Este usuario ya existe!"
                         ];
                         
                         $this->vista('paginaweb/header');
-                        $this->vista('paginaweb/entrar',$datos);
+                        $this->vista('paginaweb/registrar',$datos);
                         $this->vista('paginaweb/footer');
-                    } else {
-                        header('Location:'.RUTA_URL.'/paginaweb/registrar');
                     }
-
                 }
             } 
         }

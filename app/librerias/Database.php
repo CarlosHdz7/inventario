@@ -58,5 +58,17 @@
             return $this->statement->execute();
         }
 
+        public function obtenerRegistro(){
+            $this->execute();
+            return $this->statement->fetch(PDO::FETCH_ASSOC);
+        }
 
+        public function obtenerRegistros(){
+            $this->execute();
+            return $this->statement->fetchALL(PDO::FETCH_OBJ);
+        }
+
+        public function obtenerFilas(){
+            return $this->statement->rowCount();
+        }
     }
