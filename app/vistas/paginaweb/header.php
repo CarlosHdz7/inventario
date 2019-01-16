@@ -16,7 +16,7 @@
     
     <nav class="blue-grey darken-4">
         <div class="nav-wrapper container">
-            <a href="#" class="brand-logo">Logo</a>
+            <a href="#" class="brand-logo">Inventario</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="<?php echo RUTA_URL?>/paginaweb/inicio" class="btn-inicio">Inicio</a></li>

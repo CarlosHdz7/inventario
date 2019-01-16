@@ -71,4 +71,20 @@
             } 
         }
 
+        public function login_usuario(){
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                
+                $usuario  = $_POST['usuario'];
+                $password = $_POST['pass'];
+                $password = encriptar($password);
+
+                $datos = $this->usuario->verificar_usuario_pass($usuario,$password);
+
+                if($datos['usuario'] == $usuario AND $datos['pass'] == $password){
+                    die("exito");
+                } else {
+                    die(var_dump($datos));
+                }
+            }
+        }
     }//fin de la clase
