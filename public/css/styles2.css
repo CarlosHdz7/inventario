@@ -1,0 +1,13 @@
+/* *{
+    border:1px solid red;
+}
+ */
+body{
+    background-color: #eceff1;
+    width: 100%;
+    height:100vh;
+}
+
+.dropdown-content{
+    white-space: nowrap; 
+}
