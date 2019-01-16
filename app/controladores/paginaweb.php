@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
     class Paginaweb extends Controlador{
 
         public function __construct(){
@@ -6,9 +6,14 @@
         }
 
         public function index(){
-            $this->vista('paginaweb/header');
-            $this->vista('paginaweb/inicio');
-            $this->vista('paginaweb/footer');
+            
+            if(isset($_SESSION['usuario'])){
+                $this->vista('inicio');
+            } else {
+                $this->vista('paginaweb/header');
+                $this->vista('paginaweb/inicio');
+                $this->vista('paginaweb/footer');
+            }
         }
 
         public function registrar(){
@@ -76,12 +81,12 @@
                 
                 $usuario  = $_POST['usuario'];
                 $password = $_POST['pass'];
-                $password = encriptar($password);
 
-                $datos = $this->usuario->verificar_usuario_pass($usuario,$password);
+                $datos = $this->usuario->verificar_usuario($usuario);
 
-                if($datos['usuario'] == $usuario AND $datos['pass'] == $password){
-                    die("exito");
+                if(verificar_hash($password, $datos['pass'])){
+                    $_SESSION['usuario'] = $datos['usuario'];
+                    redireccionar('/paginaweb/');
                 } else {
                     die(var_dump($datos));
                 }

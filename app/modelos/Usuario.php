@@ -31,12 +31,6 @@
             return $this->db->obtenerRegistro();
         }
 
-        public function verificar_usuario_pass($usuario, $password){
-            $this->db->query("SELECT * FROM usuarios WHERE usuario=:usuario AND pass=:password");
-            $this->db->bind(':usuario',$usuario);
-            $this->db->bind(':password',$password);
-            return $this->db->obtenerRegistro();
-        }
     }
 
     
