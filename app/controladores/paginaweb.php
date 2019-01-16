@@ -8,7 +8,7 @@
         public function index(){
             
             if(isset($_SESSION['usuario'])){
-                $this->vista('inicio');
+                redireccionar('/app');
             } else {
                 $this->vista('paginaweb/header');
                 $this->vista('paginaweb/inicio');
