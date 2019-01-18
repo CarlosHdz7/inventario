@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="<?php echo RUTA_URL?>/css/styles2.css"></link>
+    <link rel="stylesheet" href="<?php echo RUTA_URL?>/css/styles2.css">
     
     <title><?php echo NOMBRE_SITIO; ?></title>
     <title>Document</title>
@@ -48,6 +48,58 @@
         <li><a href="#"><i class="material-icons left">attach_money</i>Vender</a></li>
         <li><a href="#"><i class="material-icons left">exit_to_app</i>Cerrar sesión</a></li>
     </ul>
+
+    <div class="container">
+        <div class="row box-contenedor">
+            <div class="box card-panel">
+                <div class="yellow darken-1 box-icon">
+                    <i class="medium material-icons">attach_money</i>
+                    <p>Ventas</p>
+                </div>
+                <div class="box-icon">
+                    <p>$235.00</p>
+                </div>
+            </div>
+            <div class="box card-panel">
+                <div class="green box-icon">
+                    <i class="medium material-icons">business_center</i>
+                </div>
+                <div class="box-icon">
+                    <p>$235.00</p>
+                </div>
+            </div>
+            <div class="box card-panel">
+                <div class="blue box-icon">
+                    <i class="medium material-icons">group</i>
+                    <p>Clientes</p>
+                </div>
+                <div class="box-icon">
+                    <p>1435</p>
+                </div>
+            </div>
+            <div class="box card-panel">
+                <div class="red box-icon">
+                    <i class="medium material-icons">local_grocery_store</i>
+                    <p>Productos</p>
+                </div>
+                <div class="box-icon">
+                    <p>125</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red">
+            <i class="large material-icons blue-grey darken-4">add</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+    </div>
 
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

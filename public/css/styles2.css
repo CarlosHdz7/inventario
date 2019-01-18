@@ -11,3 +11,44 @@ body{
 .dropdown-content{
     white-space: nowrap; 
 }
+
+.contenedor{
+    margin-top: 45px;
+}
+
+.contenedor-estadisticas{
+    padding: 5px;
+    width: 100%;
+}
+
+.estadistica{
+    width: 50%;
+    height: 60px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.box-contenedor{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 150px 150px;
+    grid-gap: 10px;
+}
+
+.box{
+    display: grid;
+    grid-template-columns: repeat(2,2fr);
+}
+
+.card-panel{
+    margin: 0;
+    padding: 0;
+}
+
+.box-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
