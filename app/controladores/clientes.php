@@ -7,8 +7,13 @@
         }
 
         public function index(){
+            $clientes = $this->cliente->obtener();
+            $datos= [
+                'clientes' => $clientes
+            ];
+
             $this->vista('app/header');
-            $this->vista('app/clientes');
+            $this->vista('app/clientes',$datos);
             $this->vista('app/footer');
         }
 
@@ -27,19 +32,9 @@
                     $id_usuario = $usuario['id'];
 
                     if($this->cliente->agregar($id_usuario,$cliente,$direccion,$email,$telefono)){
-                        $datos = [
-                            "mensaje" => "exito"
-                        ];
-                        $this->vista('app/header');
-                        $this->vista('app/clientes',$datos);
-                        $this->vista('app/footer');
+                        redireccionar('/clientes');
                     } else {
-                        $datos = [
-                            "mensaje" => "fracaso"
-                        ];
-                        $this->vista('app/header');
-                        $this->vista('app/clientes',$datos);
-                        $this->vista('app/footer');
+                        die('No se pudo registrar cliente');
                     }
 
                 }
@@ -50,7 +45,11 @@
             
         }
 
-        public function borrar(){
-            
+        public function borrar($id){
+            if($this->cliente->borrar($id)){
+                redireccionar('/clientes');
+            } else {
+                die('No se pudo borrar cliente');
+            }
         }
     }
