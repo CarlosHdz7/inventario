@@ -8,7 +8,7 @@ class Paginaweb extends Controlador{
     public function index(){
         
         if(isset($_SESSION['usuario'])){
-            redireccionar('/app');
+            redireccionar('/inicio');
         } else {
             $this->vista('paginaweb/header');
             $this->vista('paginaweb/inicio');

@@ -1,5 +1,12 @@
 <div class="container">
     <h4>Clientes</h4>
+    <?php
+        if(!empty($datos)){
+            echo "<p class='error-mensaje pink accent-3 pink-text text-lighten-5'>".$datos['mensaje']."</p>";
+            
+        }
+    ?>
+
 
     <nav class="white">
         <div class="nav-wrapper">
@@ -25,33 +32,30 @@
             <h4>Agregar un cliente</h4>
             <p>Rellenar todos los campos</p>
             <div class="row">
-                <form action="" class="col s12">
+                <form action="<?php echo RUTA_URL?>/clientes/agregar" method="POST" class="col s12">
                     <div class="input-field col s12 m6">
-                        <input id="nombre" type="text" class="validate" name="nombre">
-                        <label for="nombre">Nombre</label>
+                        <input id="cliente" type="text" class="validate" name="cliente">
+                        <label for="cliente">Cliente</label>
                     </div>
-                    <div class="input-field col s12 m6">
-                        <input id="apellido" type="text" class="validate" name="apellido">
-                        <label for="apellido">Apellido</label>
-                    </div>                    
+                    <div class="input-field col s6">
+                        <input id="email" type="email" class="validate" name="email">
+                        <label for="email">email</label>
+                    </div>
                     <div class="input-field col s12">
-                        <input id="direccion" type="text" class="validate" class="direccion">
+                        <input id="direccion" type="text" class="validate" name="direccion">
                         <label for="direccion">Direccion</label>
-                    </div>
+                    </div>                    
                     <div class="input-field col s12 m6">
-                        <input id="telefono" type="text" class="validate">
+                        <input id="telefono" type="text" class="validate" name="telefono">
                         <label for="telefono">Telefono</label>
                     </div>
-                    <div class="input-field col s12 m6">
-                        <input id="ciudad" type="text" class="validate">
-                        <label for="ciudad">Ciudad</label>
-                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Agregar</button>
                 </form>
             </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agregar</a>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Agregar</button>
+            <button class="btn waves-effect waves-light modal-close red">Cancelar</button>
         </div>
     </div>
           
@@ -59,11 +63,10 @@
     <table class="white highlight card-panel tabla-clientes responsive-table">
         <thead>
           <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Direccion</th>
+              <th>Cliente</th>
+              <th>Dirección</th>
               <th>Telefono</th>
-              <th>Ciudad</th>
+              <th>email</th>
               <th>Editar</th>
               <th>Borrar</th>
           </tr>
@@ -75,7 +78,6 @@
             <td>Eclair</td>
             <td>$0.87</td>
             <td>2285-7854</td>
-            <td>Soyapango</td>
             <td><a class="waves-effect waves-light btn blue"><i class="material-icons">edit</i></a></td>
             <td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>
           </tr>
@@ -84,7 +86,6 @@
             <td>Jellybean</td>
             <td>$3.76</td>
             <td>2260-4563</td>
-            <td>Soyapango</td>
             <td><a class="waves-effect waves-light btn blue"><i class="material-icons">edit</i></a></td>
             <td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>
           </tr>
@@ -93,7 +94,6 @@
             <td>Lollipop</td>
             <td>$7.00</td>
             <td>2290-1064</td>
-            <td>Soyapango</td>
             <td><a class="waves-effect waves-light btn blue"><i class="material-icons">edit</i></a></td>
             <td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>
           </tr>

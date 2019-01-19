@@ -31,6 +31,12 @@
             return $this->db->obtenerRegistro();
         }
 
+        public function obtener_id($usuario){
+            $this->db->query("SELECT id FROM usuarios WHERE usuario=:usuario");
+            $this->db->bind(':usuario',$usuario);
+            return $this->db->obtenerRegistro();
+        }
+
     }
 
     
