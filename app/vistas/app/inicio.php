@@ -52,7 +52,7 @@
     <div class="container">
         <div class="row box-contenedor">
             <div class="box card-panel">
-                <div class="yellow darken-1 box-icon">
+                <div class="teal accent-4 box-icon">
                     <i class="medium material-icons">attach_money</i>
                     <p>Ventas</p>
                 </div>
@@ -61,15 +61,16 @@
                 </div>
             </div>
             <div class="box card-panel">
-                <div class="green box-icon">
+                <div class="teal accent-4 box-icon">
                     <i class="medium material-icons">business_center</i>
+                    <p>Total</p>
                 </div>
                 <div class="box-icon">
                     <p>$235.00</p>
                 </div>
             </div>
             <div class="box card-panel">
-                <div class="blue box-icon">
+                <div class="teal accent-4 box-icon">
                     <i class="medium material-icons">group</i>
                     <p>Clientes</p>
                 </div>
@@ -78,7 +79,7 @@
                 </div>
             </div>
             <div class="box card-panel">
-                <div class="red box-icon">
+                <div class="teal accent-4 box-icon">
                     <i class="medium material-icons">local_grocery_store</i>
                     <p>Productos</p>
                 </div>
@@ -94,10 +95,10 @@
             <i class="large material-icons blue-grey darken-4">add</i>
         </a>
         <ul>
-            <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+            <li><a class="btn-floating teal accent-4"><i class="material-icons">insert_chart</i></a></li>
+            <li><a class="btn-floating teal accent-4"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating teal accent-4"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating teal accent-4"><i class="material-icons">attach_file</i></a></li>
         </ul>
     </div>
 

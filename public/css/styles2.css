@@ -32,7 +32,7 @@ body{
     margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 150px 150px;
+    grid-template-rows: repeat(1, 150px);
     grid-gap: 10px;
 }
 
@@ -51,4 +51,24 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+/* Media querys */
+@media screen and (max-width:767px){
+    .box-contenedor{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 150px);
+    }
+}
+
+@media screen and (max-width:480px){
+    .box-contenedor{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, auto);
+    }
+
+    .box{
+        grid-template-columns: repeat(1,1fr);
+    }
+    
 }
