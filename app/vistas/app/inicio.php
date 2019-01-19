@@ -1,4 +1,5 @@
 <div class="container">
+    <h4>Resumen</h4>
     <div class="row box-contenedor">
         <div class="box card-panel">
             <div class="teal accent-4 box-icon">

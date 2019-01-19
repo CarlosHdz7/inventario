@@ -1,6 +1,6 @@
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large red">
-            <i class="large material-icons blue-grey darken-4">add</i>
+            <i class="large material-icons blue-grey darken-4">settings_applications</i>
         </a>
         <ul>
             <li><a class="btn-floating  cyan darken-4"><i class="material-icons">insert_chart</i></a></li>

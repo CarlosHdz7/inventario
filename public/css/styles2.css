@@ -31,8 +31,8 @@ body{
 .box-contenedor{
     margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(1, 150px);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 150px);
     grid-gap: 10px;
 }
 
@@ -52,6 +52,27 @@ body{
     justify-content: center;
     flex-direction: column;
 }
+
+/* Vista clientes */
+.btn-container,
+.tabla-clientes{
+    margin-top: 30px;
+}
+
+.paginacion{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
 
 /* Media querys */
 @media screen and (max-width:767px){
