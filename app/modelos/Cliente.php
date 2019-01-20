@@ -29,6 +29,22 @@
             }
         }
 
+        public function editar($cliente,$direccion,$email,$telefono,$id){
+            $this->db->query("UPDATE clientes SET cliente=:cliente,direccion=:direccion, email=:email, telefono=:telefono WHERE id=:id");
+            
+            $this->db->bind(':cliente',$cliente);
+            $this->db->bind(':direccion',$direccion);
+            $this->db->bind(':email',$email);
+            $this->db->bind(':telefono',$telefono);
+            $this->db->bind(':id',$id);
+
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         public function borrar($id){
             $this->db->query('DELETE FROM clientes  WHERE id = :id');
             $this->db->bind(':id',$id);

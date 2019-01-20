@@ -26,7 +26,7 @@
                 $telefono   = $_POST['telefono'];
 
                 if($cliente == "" || $email == "" || $direccion == "" || $telefono ==""){
-
+                    die('Por favor llenar los campos');
                 } else {
                     $usuario = $this->usuario->obtener_id( $_SESSION['usuario'] );
                     $id_usuario = $usuario['id'];
@@ -43,6 +43,24 @@
 
         public function editar(){
             
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $cliente    = $_POST['cliente']; 
+                $email      = $_POST['email'];
+                $direccion  = $_POST['direccion'];
+                $telefono   = $_POST['telefono'];
+                $id         = $_POST['id'];
+
+                if($cliente == "" || $email == "" || $direccion == "" || $telefono == "" || $id == ""){
+                    die('Por favor llenar los campos');
+                } else {
+                    if($this->cliente->editar($cliente,$direccion,$email,$telefono,$id)){
+                        redireccionar('/clientes');
+                    } else {
+                        die('No se pudo editar cliente');
+                    }
+
+                }
+            }
         }
 
         public function borrar($id){

@@ -64,26 +64,27 @@
             <div class="row">
                 <form action="<?php echo RUTA_URL?>/clientes/editar" method="POST" class="col s12" name="editClientes">
                     <div class="input-field col s12 m6">
-                        <input id="cliente" type="text" class="validate" name="cliente">
+                        <input id="cliente" placeholder="Cliente" type="text" class="validate edit-cliente" name="cliente">
                         <label for="cliente">Cliente</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="email" type="email" class="validate" name="email">
+                        <input id="email" placeholder="Email" type="email" class="validate edit-email" name="email">
                         <label for="email">email</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="direccion" type="text" class="validate" name="direccion">
+                        <input id="direccion" placeholder="Dirección" type="text" class="validate edit-direccion" name="direccion">
                         <label for="direccion">Direccion</label>
                     </div>                    
                     <div class="input-field col s12 m6">
-                        <input id="telefono" type="text" class="validate" name="telefono">
+                        <input id="telefono" placeholder="Teléfono" type="text" class="validate edit-telefono" name="telefono">
                         <label for="telefono">Telefono</label>
                     </div>
+                    <input class=" validate edit-id" type="hidden" name="id">
                 </form>
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn waves-effect waves-light" name="action" onclick="addClientes.submit()">Agregar</button>
+            <button class="btn waves-effect waves-light" name="action" onclick="editClientes.submit()">Editar</button>
             <button class="btn waves-effect waves-light modal-close red">Cancelar</button>
         </div>
     </div>      
@@ -108,7 +109,8 @@
                 <td><?php echo $cliente->direccion; ?></td>
                 <td><?php echo $cliente->telefono; ?></td>
                 <td><?php echo $cliente->email; ?></td>
-                <td><a class="waves-effect waves-light btn blue  modal-trigger" href="#modal2"><i class="material-icons">edit</i></a></td>
+                <td hidden="true"><?php echo $cliente->id; ?></td>
+                <td><a class="waves-effect waves-light btn blue  modal-trigger btn-editar-cliente" href="#modal2"><i class="material-icons">edit</i></a></td>
                 <td><a class="waves-effect waves-light btn red" href="<?php echo RUTA_URL?>/clientes/borrar/<?php echo $cliente->id;?>"><i class="material-icons">delete</i></a></td>
             </tr>
             <?php endforeach;?>
