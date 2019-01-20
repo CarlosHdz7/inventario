@@ -8,7 +8,7 @@
         }
 
         public function obtener(){
-            $this->db->query('SELECT * FROM clientes');
+            $this->db->query('SELECT * FROM clientes LIMIT 0,10');
             return $this->db->obtenerRegistros();
         }
 

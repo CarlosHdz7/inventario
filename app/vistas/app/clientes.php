@@ -101,17 +101,22 @@
         </thead>
 
         <tbody>
-        <?php foreach($datos['clientes'] as $cliente): ?>
-          <tr>
-            <td><?php echo $cliente->cliente; ?></td>
-            <td><?php echo $cliente->direccion; ?></td>
-            <td><?php echo $cliente->telefono; ?></td>
-            <td><?php echo $cliente->email; ?></td>
-            <td><a class="waves-effect waves-light btn blue  modal-trigger" href="#modal2"><i class="material-icons">edit</i></a></td>
-            <td><a class="waves-effect waves-light btn red" href="<?php echo RUTA_URL?>/clientes/borrar/<?php echo $cliente->id;?>"><i class="material-icons">delete</i></a></td>
-          </tr>
-        <?php endforeach;?>
-
+        <?php if(!empty($datos['clientes'])): ?>
+            <?php foreach($datos['clientes'] as $cliente): ?>
+            <tr>
+                <td><?php echo $cliente->cliente; ?></td>
+                <td><?php echo $cliente->direccion; ?></td>
+                <td><?php echo $cliente->telefono; ?></td>
+                <td><?php echo $cliente->email; ?></td>
+                <td><a class="waves-effect waves-light btn blue  modal-trigger" href="#modal2"><i class="material-icons">edit</i></a></td>
+                <td><a class="waves-effect waves-light btn red" href="<?php echo RUTA_URL?>/clientes/borrar/<?php echo $cliente->id;?>"><i class="material-icons">delete</i></a></td>
+            </tr>
+            <?php endforeach;?>
+        <?php else: ?>
+            <tr>
+                <td>No hay clientes registrados</td>
+            </tr>
+        <?php endif; ?>
         </tbody>
     </table>
 
