@@ -20,10 +20,10 @@
         public function agregar(){
            
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $cliente    = $_POST['cliente']; 
-                $email      = $_POST['email'];
-                $direccion  = $_POST['direccion'];
-                $telefono   = $_POST['telefono'];
+                $cliente    = trim($_POST['cliente']); 
+                $email      = trim($_POST['email']);
+                $direccion  = trim($_POST['direccion']);
+                $telefono   = trim($_POST['telefono']);
 
                 if($cliente == "" || $email == "" || $direccion == "" || $telefono ==""){
                     die('Por favor llenar los campos');
@@ -44,11 +44,11 @@
         public function editar(){
             
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $cliente    = $_POST['cliente']; 
-                $email      = $_POST['email'];
-                $direccion  = $_POST['direccion'];
-                $telefono   = $_POST['telefono'];
-                $id         = $_POST['id'];
+                $cliente    = trim($_POST['cliente']); 
+                $email      = trim($_POST['email']);
+                $direccion  = trim($_POST['direccion']);
+                $telefono   = trim($_POST['telefono']);
+                $id         = trim($_POST['id']);
 
                 if($cliente == "" || $email == "" || $direccion == "" || $telefono == "" || $id == ""){
                     die('Por favor llenar los campos');

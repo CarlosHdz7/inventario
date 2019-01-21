@@ -121,10 +121,4 @@
         <?php endif; ?>
         </tbody>
     </table>
-
-    <div class="paginacion">
-        <a class="waves-effect waves-light btn"><i class="material-icons">arrow_back</i></a>
-        <a class="waves-effect waves-light btn"><i class="material-icons">arrow_forward</i></a>
-    </div>
-
 </div>
