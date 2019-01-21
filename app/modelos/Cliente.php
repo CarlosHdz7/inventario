@@ -54,4 +54,9 @@
                 return false;
             }
         }
+
+        public function total_clientes(){
+            $this->db->query('SELECT count(*) as total FROM clientes');
+            return $this->db->obtenerRegistro();
+        }
     }

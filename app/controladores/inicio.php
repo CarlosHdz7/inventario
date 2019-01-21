@@ -3,12 +3,16 @@
 
         public function __construct(){
             $this->exampleModel = $this->modelo('Example');
+            $this->cliente = $this->modelo('Cliente');
         }
 
         public function index(){
-
+            $clientes = $this->cliente->total_clientes();
+            $datos= [
+                'clientes' => $clientes['total']
+            ];
             $this->vista('app/header');
-            $this->vista('app/inicio');
+            $this->vista('app/inicio',$datos);
             $this->vista('app/footer');
         }
 

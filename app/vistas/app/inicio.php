@@ -25,7 +25,7 @@
                 <p>Clientes</p>
             </div>
             <div class="box-icon">
-                <p>1435</p>
+                <p><?php echo $datos['clientes'];?></p>
             </div>
         </div>
         <div class="box card-panel">
