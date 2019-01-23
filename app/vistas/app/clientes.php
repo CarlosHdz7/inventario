@@ -7,7 +7,7 @@
     ?>
 
 
-    <nav class="white">
+<!--     <nav class="white">
         <div class="nav-wrapper">
         <form>
             <div class="input-field">
@@ -17,7 +17,7 @@
             </div>
         </form>
         </div>
-    </nav>
+    </nav> -->
 
     <div class="btn-container">
         <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons left">add</i>Agregar</a>
@@ -121,4 +121,18 @@
         <?php endif; ?>
         </tbody>
     </table>
+
+
+
+    <!-- Paginación -->
+    <div class="paginacion-container">
+        <ul class="pagination">
+            <li class="disabled"><a href="<?php echo RUTA_URL?>/clientes/pagina/1"><i class="material-icons">chevron_left</i></a></li>
+            <?php for($i = 1; $i <= $datos['total_paginas']; $i++){?>
+                <li class='waves-effect'><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
+            <?php };?>
+            <li class="waves-effect"><a href="<?php echo RUTA_URL?>/clientes/pagina/1"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+
 </div>

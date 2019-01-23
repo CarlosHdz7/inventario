@@ -17,6 +17,37 @@
             $this->vista('app/footer');
         }
 
+        public function pagina($pagina = null){
+            //variables
+            $total_registros;
+            $cantidad_paginas = 10;
+            $desde;
+            $total_paginas;
+
+
+            $total_clientes = $this->cliente->total_clientes();      
+
+            if($pagina == null or $pagina == 0){
+                $pagina = 1;
+            } else {
+                $numero_pagina = $pagina;
+            }
+
+            $desde = ( $pagina - 1 ) * $cantidad_paginas;
+            $total_paginas = ceil( $total_clientes['total'] / $cantidad_paginas );
+
+            $clientes = $this->cliente->obtener_clientes( $desde, $cantidad_paginas );
+            
+            $datos= [
+                'clientes' => $clientes,
+                'total_paginas' => $total_paginas
+            ];
+
+            $this->vista('app/header');
+            $this->vista('app/clientes',$datos);
+            $this->vista('app/footer');
+        }
+
         public function agregar(){
            
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -32,7 +63,7 @@
                     $id_usuario = $usuario['id'];
 
                     if($this->cliente->agregar($id_usuario,$cliente,$direccion,$email,$telefono)){
-                        redireccionar('/clientes');
+                        redireccionar('/clientes/pagina');
                     } else {
                         die('No se pudo registrar cliente');
                     }
@@ -54,7 +85,7 @@
                     die('Por favor llenar los campos');
                 } else {
                     if($this->cliente->editar($cliente,$direccion,$email,$telefono,$id)){
-                        redireccionar('/clientes');
+                        redireccionar('/clientes/pagina');
                     } else {
                         die('No se pudo editar cliente');
                     }
@@ -65,7 +96,7 @@
 
         public function borrar($id){
             if($this->cliente->borrar($id)){
-                redireccionar('/clientes');
+                redireccionar('/clientes/pagina');
             } else {
                 die('No se pudo borrar cliente');
             }
