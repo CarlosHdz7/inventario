@@ -89,7 +89,7 @@
         </div>
     </div>      
         
-    <table class="white highlight card-panel tabla-clientes responsive-table">
+    <table class="white striped card-panel tabla-clientes responsive-table">
         <thead>
           <tr>
               <th>Cliente</th>
@@ -127,12 +127,18 @@
     <!-- Paginación -->
     <div class="paginacion-container">
         <ul class="pagination">
-            <li class="disabled"><a href="<?php echo RUTA_URL?>/clientes/pagina/1"><i class="material-icons">chevron_left</i></a></li>
+            <li class="disabled"><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $datos['pagina'] - 1; ?>"><i class="material-icons">chevron_left</i></a></li>
             <?php for($i = 1; $i <= $datos['total_paginas']; $i++){?>
-                <li class='waves-effect'><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
+                <?php if($datos['pagina'] == $i):?>
+                    <li class='waves-effect active teal lighten-1'><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
+                <?php else:?>
+                        <li class='waves-effect'><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
+                <?php endif; ?>
             <?php };?>
-            <li class="waves-effect"><a href="<?php echo RUTA_URL?>/clientes/pagina/1"><i class="material-icons">chevron_right</i></a></li>
+            <li class="waves-effect"><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $datos['pagina'] + 1; ?>"><i class="material-icons">chevron_right</i></a></li>
         </ul>
     </div>
 
 </div>
+
+< >

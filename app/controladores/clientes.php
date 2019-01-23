@@ -20,7 +20,7 @@
         public function pagina($pagina = null){
             //variables
             $total_registros;
-            $cantidad_paginas = 10;
+            $cantidad_paginas = 5;
             $desde;
             $total_paginas;
 
@@ -40,7 +40,8 @@
             
             $datos= [
                 'clientes' => $clientes,
-                'total_paginas' => $total_paginas
+                'total_paginas' => $total_paginas,
+                'pagina'  => $pagina
             ];
 
             $this->vista('app/header');
