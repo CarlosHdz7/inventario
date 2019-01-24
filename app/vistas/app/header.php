@@ -15,13 +15,13 @@
 <body>
     <!-- Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="<?php echo RUTA_URL?>/articulos"><i class="material-icons left">beach_access</i>Articulos</a></li>
+        <li><a href="<?php echo RUTA_URL?>/productos"><i class="material-icons left">beach_access</i>Productos</a></li>
         <li><a href="<?php echo RUTA_URL?>/categorias"><i class="material-icons left">dashboard</i>Categorias </a></li>
     </ul>
 
     <!-- Dropdown Structure -->
     <ul id="dropdown2" class="dropdown-content">
-        <li><a href="<?php echo RUTA_URL?>/articulos"><i class="material-icons left">beach_access</i>Articulos</a></li>
+        <li><a href="<?php echo RUTA_URL?>/productos"><i class="material-icons left">beach_access</i>Productos</a></li>
         <li><a href="<?php echo RUTA_URL?>/categorias"><i class="material-icons left">dashboard</i>Categorias </a></li>
     </ul>
     <!-- Navbar -->

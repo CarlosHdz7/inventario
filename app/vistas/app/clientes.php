@@ -6,7 +6,6 @@
         }
     ?>
 
-
 <!--     <nav class="white">
         <div class="nav-wrapper">
         <form>
@@ -19,13 +18,14 @@
         </div>
     </nav> -->
 
+    <!-- BOTONES PRINCIPALES -->
     <div class="btn-container">
         <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons left">add</i>Agregar</a>
         <a class="waves-effect waves-light btn"><i class="material-icons left">find_in_page</i>Filtrar</a>
         <a class="waves-effect waves-light btn"><i class="material-icons left">print</i>Imprimir</a>
     </div>
 
-    <!-- Modal agregar cliente -->
+    <!-- MODAL AGREGAR CLIENTE -->
     <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Agregar un cliente</h4>
@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <!-- Modal editar cliente -->
+    <!-- MODAL EDITAR CLIENTE -->
     <div id="modal2" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Editar un cliente</h4>
@@ -87,8 +87,20 @@
             <button class="btn waves-effect waves-light" name="action" onclick="editClientes.submit()">Editar</button>
             <button class="btn waves-effect waves-light modal-close red">Cancelar</button>
         </div>
+    </div>
+
+      <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
     </div>      
         
+    <!-- TABLA DE CLIENTES -->
     <table class="white striped card-panel tabla-clientes responsive-table">
         <thead>
           <tr>
@@ -124,11 +136,11 @@
 
 
 
-    <!-- Paginación -->
+    <!-- PAGINACIÓN -->
     <div class="paginacion-container">
         <ul class="pagination">
             <?php if($datos['pagina'] == 1): ?>
-                <li class="disabled"><a href=""><i class="material-icons">chevron_left</i></a></li>
+                <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
             <?php else:?>
                 <li class=""><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $datos['pagina'] - 1; ?>"><i class="material-icons">chevron_left</i></a></li>
             <?php endif;?>
@@ -142,7 +154,7 @@
                 <?php };?>
 
             <?php if($datos['pagina'] == $datos['total_paginas']): ?>
-                <li class="waves-effect disabled"><a href=""><i class="material-icons">chevron_right</i></a></li>
+                <li class="waves-effect disabled"><a><i class="material-icons">chevron_right</i></a></li>
             <?php else:?>
                 <li class="waves-effect"><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $datos['pagina'] + 1; ?>"><i class="material-icons">chevron_right</i></a></li>
             <?php endif;?>
@@ -150,5 +162,3 @@
     </div>
 
 </div>
-
-< >

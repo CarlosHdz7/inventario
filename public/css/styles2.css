@@ -92,5 +92,10 @@ body{
     .box{
         grid-template-columns: repeat(1,1fr);
     }
+
+    .btn-container > a{
+        width: 100%;
+        margin-bottom: 5px;
+    }
     
 }
