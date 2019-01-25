@@ -8,15 +8,24 @@ $(document).ready(function(){
     $('.btn-editar-cliente').on('click',function(){
         var fila = $(this).parent();
         var columnas = $(fila).siblings();
-
-        console.log(columnas[0].innerHTML);
-        console.log(columnas[4].innerHTML);
         
-        $(".edit-cliente").val(columnas[0].innerHTML);
-        $(".edit-email").val(columnas[3].innerHTML);
-        $(".edit-direccion").val(columnas[1].innerHTML);
-        $(".edit-telefono").val(columnas[2].innerHTML);
-        $(".edit-id").val(columnas[4].innerHTML);
+        $(".edit-cliente").val(columnas[0].innerHTML); //nombre del cliente
+        $(".edit-email").val(columnas[3].innerHTML); //email del cliente
+        $(".edit-direccion").val(columnas[1].innerHTML); //direccion del cliente
+        $(".edit-telefono").val(columnas[2].innerHTML); //telefono del cliente
+        $(".edit-id").val(columnas[4].innerHTML);   //id del cliente
     })
+
+    $('.btn-borrar-cliente').on('click',function(){
+        var fila = $(this).parent();
+        var columnas = $(fila).siblings();
+        $(".nombre-cliente").text(columnas[0].innerHTML);
+
+        //Se le asigna el id a la url del boton aceptar para enviarselo
+        //la funcion borrar
+        var href = $('.btn-aceptar-borrar').attr('href');
+        href = href + columnas[4].innerHTML; //se concatena el id
+        $('.btn-aceptar-borrar').attr('href',href);
+    });
 });
         

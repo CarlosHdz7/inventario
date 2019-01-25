@@ -79,7 +79,7 @@
                         <input id="telefono" placeholder="Teléfono" type="text" class="validate edit-telefono" name="telefono">
                         <label for="telefono">Telefono</label>
                     </div>
-                    <input class=" validate edit-id" type="hidden" name="id">
+                    <input class="validate edit-id" type="hidden" name="id">
                 </form>
             </div>
         </div>
@@ -89,14 +89,15 @@
         </div>
     </div>
 
-      <!-- Modal Structure -->
-    <div id="modal1" class="modal">
+      <!-- MODAL BORRAR CLIENTE -->
+    <div id="modal3" class="modal">
         <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <h4>¿Desea eliminar el siguiente cliente?</h4>
+        <p class="nombre-cliente">Cliente</p>
         </div>
         <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="<?php echo RUTA_URL?>/clientes/borrar/" class="btn modal-close waves-effect waves-light btn-aceptar-borrar">Aceptar</a>
+            <a class="btn modal-close waves-effect waves-light  red">Cancelar</a>
         </div>
     </div>      
         
@@ -123,7 +124,7 @@
                 <td><?php echo $cliente->email; ?></td>
                 <td hidden="true"><?php echo $cliente->id; ?></td>
                 <td><a class="waves-effect waves-light btn blue  modal-trigger btn-editar-cliente" href="#modal2"><i class="material-icons">edit</i></a></td>
-                <td><a class="waves-effect waves-light btn red" href="<?php echo RUTA_URL?>/clientes/borrar/<?php echo $cliente->id;?>"><i class="material-icons">delete</i></a></td>
+                <td><a class="waves-effect waves-light btn red modal-trigger btn-borrar-cliente" href="#modal3"><i class="material-icons">delete</i></a></td>
             </tr>
             <?php endforeach;?>
         <?php else: ?>
