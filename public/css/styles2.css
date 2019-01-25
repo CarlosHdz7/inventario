@@ -55,10 +55,18 @@ body{
 
 /* Vista clientes */
 .btn-container,
-.tabla-clientes{
+.tabla-categorias,
+.tabla-clientes {
     margin-top: 30px;
 }
 
+.tabla-categorias{
+    table-layout: auto;
+}
+
+.col-category{
+    width: 70%;
+}
 
 .paginacion-container{
     margin: 20px 0 40px 0;
@@ -97,5 +105,15 @@ body{
         width: 100%;
         margin-bottom: 5px;
     }
+
+    .tabla-categorias{
+        table-layout: fixed;
+    }
     
+}
+
+
+/*Utilidades*/
+.hide{
+    display: none;
 }
