@@ -7,13 +7,13 @@
             $this->db = new Database;
         }
 
-        public function obtener(){
+/*         public function obtener(){
             $this->db->query('SELECT * FROM clientes');
             return $this->db->obtenerRegistros();
-        }
+        } */
 
         public function obtener_clientes( $desde, $cantidad_paginas ){
-            $this->db->query('SELECT * FROM clientes LIMIT :desde, :cantidad_paginas');
+            $this->db->query('SELECT * FROM clientes ORDER BY id DESC LIMIT :desde, :cantidad_paginas');
             $this->db->bind(':desde',$desde);
             $this->db->bind(':cantidad_paginas',$cantidad_paginas);
 

@@ -72,6 +72,7 @@ CREATE TABLE ventas(
 #Datos
 
 select * from clientes;
+
 insert into clientes values (null,'1','Carlos','Colonia bosques del rio','carlos@gmail.com','22584367');
 insert into clientes values (null,'1','Melissa','Colonia las margaritas','melisa@gmail.com','22588888');
 insert into clientes values (null,'1','Andrea','Colonia prados de venecia','andrea@gmail.com','2256278');
