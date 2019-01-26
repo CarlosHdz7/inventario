@@ -11,6 +11,9 @@ $(document).ready(function(){
     var title = $('title').text();
 
 
+    if(title == 'Inicio'){
+        $('.btn-inicio-nav').addClass('teal lighten-1');
+    }
     if(title == 'Clientes'){
         $('.btn-clientes-nav').addClass('teal lighten-1');
     }

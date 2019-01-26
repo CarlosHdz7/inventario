@@ -37,6 +37,8 @@ CREATE TABLE productos(
     FOREIGN KEY (id_categoria) REFERENCES categorias(id)
 )ENGINE=InnoDb;
 
+select p.id, c.categoria, p.producto, p.descripcion, p.cantidad, p.precio from productos  p inner join categorias c on p.id_categoria = c.id;
+
 CREATE TABLE clientes(
 	id int(255) auto_increment PRIMARY KEY,
     id_usuario int(255),
@@ -84,8 +86,6 @@ insert into clientes values (null,'1','Rosita','Colonia bosques del rio','rosita
 insert into clientes values (null,'1','Belen','Colonia el escalon','belen@gmail.com','22588778');
 insert into clientes values (null,'1','Marta','Colonia prados de veneci','marta@gmail.com','22224478');
 
-
-SELECT * FROM clientes ORDER BY id DESC LIMIT 0,5;
 
 
 

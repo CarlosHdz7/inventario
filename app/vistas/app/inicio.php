@@ -34,7 +34,7 @@
                 <p>Productos</p>
             </div>
             <div class="box-icon">
-                <p>125</p>
+                <p><?php echo $datos['productos'];?></p>
             </div>
         </div>
     </div>

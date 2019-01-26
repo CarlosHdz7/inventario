@@ -4,16 +4,22 @@
         public function __construct(){
             $this->cliente = $this->modelo('Cliente');
             $this->categoria = $this->modelo('Categoria');
+            $this->producto = $this->modelo('Producto');
         }
 
         public function index(){
             $clientes = $this->cliente->total_clientes();
             $categorias = $this->categoria->total_categorias();
+            $productos = $this->producto->total_productos();
+
             $datos= [
-                'clientes' => $clientes['total'],
-                'categorias' => $categorias['total']
+                'clientes'   => $clientes['total'],
+                'categorias' => $categorias['total'],
+                'productos'  => $productos['total'],
+                'titulo'     => 'Inicio'
             ];
-            $this->vista('app/header');
+
+            $this->vista('app/header',$datos);
             $this->vista('app/inicio',$datos);
             $this->vista('app/footer');
         }
