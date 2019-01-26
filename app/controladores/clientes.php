@@ -66,7 +66,7 @@
                     $id_usuario = $usuario['id'];
 
                     if($this->cliente->agregar($id_usuario,$cliente,$direccion,$email,$telefono)){
-                        redireccionar('/clientes/pagina');
+                        redireccionar('/clientes/pagina/1');
                     } else {
                         die('No se pudo registrar cliente');
                     }
@@ -88,7 +88,7 @@
                     die('Por favor llenar los campos');
                 } else {
                     if($this->cliente->editar($cliente,$direccion,$email,$telefono,$id)){
-                        redireccionar('/clientes/pagina');
+                        redireccionar('/clientes/pagina/1');
                     } else {
                         die('No se pudo editar cliente');
                     }

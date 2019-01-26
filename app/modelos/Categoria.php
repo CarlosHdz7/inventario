@@ -15,6 +15,13 @@
             return $this->db->obtenerRegistros();
         }
 
+            
+        public function obtener_categorias2( ){
+            $this->db->query('SELECT id, categoria FROM categorias');
+
+            return $this->db->obtenerRegistros();
+        }
+
         public function agregar($id_usuario,$categoria,$fecha_registro){
             
             $this->db->query("INSERT INTO categorias (id,id_usuario,categoria,fecha_registro) VALUES (null,:id_usuario,:categoria,:fecha_registro)");

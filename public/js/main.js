@@ -4,6 +4,7 @@ $(document).ready(function(){
     $(".dropdown-trigger").dropdown();
     $('.fixed-action-btn').floatingActionButton();
     $('.modal').modal();
+    $('select').formSelect();
 
     //COLORES DEL NAVBAR EN LA APP
     //---------------------------------

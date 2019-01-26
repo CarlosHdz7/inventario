@@ -9,11 +9,54 @@
     <!-- BOTONES PRINCIPALES -->
     <div class="btn-container">
         <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons left">add</i>Agregar</a>
-        <a class="waves-effect waves-light btn"><i class="material-icons left">find_in_page</i>Filtrar</a>
-        <a class="waves-effect waves-light btn"><i class="material-icons left">print</i>Imprimir</a>
     </div>
 
-    <!-- TABLA DE CLIENTES -->
+    <!-- MODAL AGREGAR PRODUCTO -->
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Agregar un producto</h4>
+            <p>Rellenar el campo</p>
+            <div class="row">
+                <form action="<?php echo RUTA_URL?>/productos/agregar" method="POST" class="col s12" name="addCategoria">
+                    
+                    <div class="input-field col s12 m6">
+                        <input id="producto" type="text" class="validate" name="producto">
+                        <label for="producto">Producto</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <select name="categoria">
+                            <option value="" disabled selected>Elije una opción</option>
+                            <?php foreach($datos['categorias'] as $categoria): ?>
+                            <option value="<?php echo $categoria->id;?>"><?php echo $categoria->categoria;?></option>
+                            <?php endforeach;?>
+                        </select>
+                        <label>Categoría</label>
+                    </div>
+
+                    <div class="input-field col s12 m12">
+                        <input id="descripcion" type="text" class="validate" name="descripcion">
+                        <label for="descripcion">Descripcion</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="precio" type="text" class="validate" name="precio">
+                        <label for="precio">Precio</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <input id="cantidad" type="text" class="validate" name="cantidad">
+                        <label for="cantidad">Cantidad</label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn waves-effect waves-light" name="action" onclick="addCategoria.submit()">Agregar</button>
+            <button class="btn waves-effect waves-light modal-close red">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- TABLA DE PRODUCTOS -->
     <table class="white striped card-panel tabla-clientes responsive-table z-depth-3">
         <thead>
           <tr>
@@ -33,8 +76,8 @@
             <tr>
                 <td><?php echo $producto->producto; ?></td>
                 <td><?php echo $producto->descripcion; ?></td>
-                <td><?php echo $producto->categoria; ?></td>
-                <td><?php echo $producto->precio; ?></td>
+                <td><?php echo $producto->id_categoria; ?></td>
+                <td>$<?php echo $producto->precio; ?></td>
                 <td><?php echo $producto->cantidad; ?></td>
                 <td class="hide"><?php echo $producto->id; ?></td>
                 <td class="col-edit"><a class="waves-effect waves-light btn blue  modal-trigger btn-editar-producto" href="#modal2"><i class="material-icons">edit</i></a></td>
