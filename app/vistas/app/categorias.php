@@ -90,6 +90,8 @@
             </tbody>
         </table>
 
+    <?php if(!empty($datos['categorias'])): ?>
+
         <!-- PAGINACIÓN -->
         <div class="paginacion-container">
             <ul class="pagination">
@@ -114,4 +116,6 @@
                 <?php endif;?>
             </ul>
         </div>
+
+    <?php endif; ?>
 </div>

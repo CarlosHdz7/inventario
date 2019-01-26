@@ -5,6 +5,7 @@ $(document).ready(function(){
     $('.fixed-action-btn').floatingActionButton();
     $('.modal').modal();
     $('select').formSelect();
+    $('.tooltipped').tooltip();
 
     //COLORES DEL NAVBAR EN LA APP
     //---------------------------------

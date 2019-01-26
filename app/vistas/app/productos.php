@@ -51,7 +51,11 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn waves-effect waves-light" name="action" onclick="addCategoria.submit()">Agregar</button>
+            <?php if( empty($datos['categorias'])): ?>
+                <button class="btn waves-effect waves-light tooltipped blue-grey lighten-5 grey-text" data-position="top" data-tooltip="No existen categorías registradas">Agregar</button>
+            <?php else:?>
+                <button class="btn waves-effect waves-light" name="action" onclick="addCategoria.submit()">Agregar</button>
+            <?php endif;?>
             <button class="btn waves-effect waves-light modal-close red">Cancelar</button>
         </div>
     </div>
@@ -93,28 +97,31 @@
     </table>
 
     <!-- PAGINACIÓN -->
-    <div class="paginacion-container">
-        <ul class="pagination">
-            <?php if($datos['pagina'] == 1): ?>
-                <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
-            <?php else:?>
-                <li class=""><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $datos['pagina'] - 1; ?>"><i class="material-icons">chevron_left</i></a></li>
-            <?php endif;?>
+    <?php if(!empty($datos['productos'])): ?>
 
-                <?php for($i = 1; $i <= $datos['total_paginas']; $i++){?>
-                    <?php if($datos['pagina'] == $i):?>
-                        <li class='waves-effect active teal lighten-1'><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
-                    <?php else:?>
-                            <li class='waves-effect'><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
-                    <?php endif; ?>
-                <?php };?>
+        <div class="paginacion-container">
+            <ul class="pagination">
+                <?php if($datos['pagina'] == 1): ?>
+                    <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
+                <?php else:?>
+                    <li class=""><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $datos['pagina'] - 1; ?>"><i class="material-icons">chevron_left</i></a></li>
+                <?php endif;?>
 
-            <?php if($datos['pagina'] == $datos['total_paginas']): ?>
-                <li class="waves-effect disabled"><a><i class="material-icons">chevron_right</i></a></li>
-            <?php else:?>
-                <li class="waves-effect"><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $datos['pagina'] + 1; ?>"><i class="material-icons">chevron_right</i></a></li>
-            <?php endif;?>
-        </ul>
-    </div>
+                    <?php for($i = 1; $i <= $datos['total_paginas']; $i++){?>
+                        <?php if($datos['pagina'] == $i):?>
+                            <li class='waves-effect active teal lighten-1'><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
+                        <?php else:?>
+                                <li class='waves-effect'><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
+                        <?php endif; ?>
+                    <?php };?>
 
+                <?php if($datos['pagina'] == $datos['total_paginas']): ?>
+                    <li class="waves-effect disabled"><a><i class="material-icons">chevron_right</i></a></li>
+                <?php else:?>
+                    <li class="waves-effect"><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $datos['pagina'] + 1; ?>"><i class="material-icons">chevron_right</i></a></li>
+                <?php endif;?>
+            </ul>
+        </div>
+
+    <?php endif;?>
 </div>
