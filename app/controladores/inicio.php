@@ -2,14 +2,16 @@
     class Inicio extends Controlador{
 
         public function __construct(){
-            $this->exampleModel = $this->modelo('Example');
             $this->cliente = $this->modelo('Cliente');
+            $this->categoria = $this->modelo('Categoria');
         }
 
         public function index(){
             $clientes = $this->cliente->total_clientes();
+            $categorias = $this->categoria->total_categorias();
             $datos= [
-                'clientes' => $clientes['total']
+                'clientes' => $clientes['total'],
+                'categorias' => $categorias['total']
             ];
             $this->vista('app/header');
             $this->vista('app/inicio',$datos);
