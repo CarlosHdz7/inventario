@@ -86,7 +86,7 @@
             <?php endforeach;?>
         <?php else: ?>
             <tr>
-                <td>No hay productos registrados</td>
+                <td colspan="7">No hay productos registrados</td>
             </tr>
         <?php endif; ?>
         </tbody>
@@ -103,7 +103,7 @@
 
                 <?php for($i = 1; $i <= $datos['total_paginas']; $i++){?>
                     <?php if($datos['pagina'] == $i):?>
-                        <li class='waves-effect active teal lighten-1'><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
+                        <li class='waves-effect active teal lighten-1'><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
                     <?php else:?>
                             <li class='waves-effect'><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
                     <?php endif; ?>

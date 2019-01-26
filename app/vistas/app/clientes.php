@@ -129,8 +129,8 @@
             </tr>
             <?php endforeach;?>
         <?php else: ?>
-            <tr>
-                <td>No hay clientes registrados</td>
+            <tr colspan="6">
+                No hay clientes registrados
             </tr>
         <?php endif; ?>
         </tbody>

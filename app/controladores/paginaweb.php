@@ -37,8 +37,9 @@ class Paginaweb extends Controlador{
             $usuario  = trim($_POST['usuario']);
             $email    = trim($_POST['email']);
             $password = trim($_POST['pass']);
+            $fecha_registro = date('Y-m-d');
             
-            if($nombre == "" || $apellido == "" || $usuario == "" || $email == "" || $password == ""){
+            if($nombre == "" || $apellido == "" || $usuario == "" || $email == "" || $password == "" || $fecha_registro == ""){
                 $datos = [
                     'error' => "Debe llenar todos los campos"
                 ];
@@ -52,7 +53,7 @@ class Paginaweb extends Controlador{
                 if($usuarioDB['usuario'] != $usuario){
                     
                     $password = encriptar($password);
-                    if($this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password)){
+                    if($this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password,$fecha_registro)){
                         $datos = [
                             "exito" => "Usuario registrado con exito!"
                         ];

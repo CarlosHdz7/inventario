@@ -58,14 +58,15 @@
                 $email      = trim($_POST['email']);
                 $direccion  = trim($_POST['direccion']);
                 $telefono   = trim($_POST['telefono']);
+                $fecha_registro = date('Y-m-d');
 
-                if($cliente == "" || $email == "" || $direccion == "" || $telefono ==""){
+                if($cliente == "" || $email == "" || $direccion == "" || $telefono =="" || $fecha_registro == ""){
                     die('Por favor llenar los campos');
                 } else {
                     $usuario = $this->usuario->obtener_id( $_SESSION['usuario'] );
                     $id_usuario = $usuario['id'];
 
-                    if($this->cliente->agregar($id_usuario,$cliente,$direccion,$email,$telefono)){
+                    if($this->cliente->agregar($id_usuario,$cliente,$direccion,$email,$telefono,$fecha_registro)){
                         redireccionar('/clientes/pagina/1');
                     } else {
                         die('No se pudo registrar cliente');
@@ -83,11 +84,12 @@
                 $direccion  = trim($_POST['direccion']);
                 $telefono   = trim($_POST['telefono']);
                 $id         = trim($_POST['id']);
+                $fecha_registro = date('Y-m-d');
 
-                if($cliente == "" || $email == "" || $direccion == "" || $telefono == "" || $id == ""){
+                if($cliente == "" || $email == "" || $direccion == "" || $telefono == "" || $id == "" || $fecha_registro == ""){
                     die('Por favor llenar los campos');
                 } else {
-                    if($this->cliente->editar($cliente,$direccion,$email,$telefono,$id)){
+                    if($this->cliente->editar($cliente,$direccion,$email,$telefono,$id,$fecha_registro)){
                         redireccionar('/clientes/pagina/1');
                     } else {
                         die('No se pudo editar cliente');

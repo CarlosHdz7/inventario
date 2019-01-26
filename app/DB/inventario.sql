@@ -11,7 +11,8 @@ CREATE TABLE usuarios(
     apellido varchar(255) not null,
     usuario varchar(100)  not null,
     email varchar(255) not null,
-    pass varchar(255) not null
+    pass varchar(255) not null,
+    fecha_registro date not null
 )ENGINE=InnoDb;
 
 

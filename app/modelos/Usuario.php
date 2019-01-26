@@ -7,15 +7,16 @@
             $this->db = new Database;
         }
 
-        public function registrar_usuarios($nombre,$apellido,$usuario,$email,$password){
+        public function registrar_usuarios($nombre,$apellido,$usuario,$email,$password, $fecha_registro){
             
-            $this->db->query("INSERT INTO usuarios (id,nombre,apellido,usuario,email,pass) VALUES (null, :nombre, :apellido, :usuario, :email, :password)");
+            $this->db->query("INSERT INTO usuarios (id,nombre,apellido,usuario,email,pass,fecha_registro) VALUES (null, :nombre, :apellido, :usuario, :email, :password, :fecha_registro)");
            
             $this->db->bind(':nombre',$nombre);
             $this->db->bind(':apellido',$apellido);
             $this->db->bind(':usuario',$usuario);
             $this->db->bind(':email',$email);
             $this->db->bind(':password',$password);
+            $this->db->bind(':fecha_registro',$fecha_registro);
             
             if($this->db->execute()){
                 return true;

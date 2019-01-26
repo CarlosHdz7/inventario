@@ -84,7 +84,7 @@
                 <?php endforeach;?>
             <?php else: ?>
                 <tr>
-                    <td>No hay categorias registradas</td>
+                    <td colspan="3">No hay categorias registradas</td>
                 </tr>
             <?php endif; ?>
             </tbody>
