@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row form-entrar">
-        <form action="<?php echo RUTA_URL?>/paginaweb/login_usuario" method="POST" class="col s6 m6 offset-m3 card">
+        <form action="<?php echo RUTA_URL?>/paginaweb/login_usuario" method="POST" class="col s6 m6 offset-m3 card z-depth-3">
             <div class="row card-content">
                 <span class="card-title">Login</span>
                 <div class="input-field col s12">

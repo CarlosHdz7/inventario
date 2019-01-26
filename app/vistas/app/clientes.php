@@ -26,7 +26,7 @@
     </div>
 
     <!-- MODAL AGREGAR CLIENTE -->
-    <div id="modal1" class="modal modal-fixed-footer">
+    <div id="modal1" class="modal modal-fixed-footer modal1-cliente">
         <div class="modal-content">
             <h4>Agregar un cliente</h4>
             <p>Rellenar todos los campos</p>
@@ -58,9 +58,10 @@
     </div>
 
     <!-- MODAL EDITAR CLIENTE -->
-    <div id="modal2" class="modal modal-fixed-footer">
+    <div id="modal2" class="modal modal-fixed-footer modal2-cliente">
         <div class="modal-content">
             <h4>Editar un cliente</h4>
+            <p>Rellenar todos los campos</p>
             <div class="row">
                 <form action="<?php echo RUTA_URL?>/clientes/editar" method="POST" class="col s12" name="editClientes">
                     <div class="input-field col s12 m6">
@@ -102,7 +103,7 @@
     </div>      
         
     <!-- TABLA DE CLIENTES -->
-    <table class="white striped card-panel tabla-clientes responsive-table">
+    <table class="white striped card-panel tabla-clientes responsive-table z-depth-3">
         <thead>
           <tr>
               <th>Cliente</th>

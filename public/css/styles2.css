@@ -3,7 +3,7 @@
 }
  */
 body{
-    background-color: #eceff1;
+    background-color: #e0e0e0;
     width: 100%;
     height:100vh;
 }
@@ -74,7 +74,10 @@ body{
     justify-content: end;
 }
 
-
+.modal1-cliente,
+.modal2-cliente{ 
+    max-height: 60%;
+}
 
 
 

@@ -60,7 +60,7 @@
         </div> 
 
         <!-- TABLA DE CATEGORIA -->
-        <table class="white striped card-panel tabla-categorias responsive-table">
+        <table class="white striped card-panel tabla-categorias responsive-table z-depth-3">
             <thead>
             <tr>
                 <th>categoria</th>

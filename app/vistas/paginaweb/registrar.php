@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row form-registrar">
-        <form action="<?php echo RUTA_URL?>/paginaweb/registrar_usuario" method="POST" class="col s12 m6 offset-m3 card">
+        <form action="<?php echo RUTA_URL?>/paginaweb/registrar_usuario" method="POST" class="col s12 m6 offset-m3 card z-depth-3">
             <div class="row card-content">
                 <span class="card-title">Registrarse</span>
                 <div class="input-field col s12 m6">
