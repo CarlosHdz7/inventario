@@ -1,3 +1,4 @@
+DROP DATABASE inventario;
 CREATE DATABASE inventario;
 USE inventario;
 show tables;
@@ -22,27 +23,18 @@ CREATE TABLE categorias(
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 
-CREATE TABLE imagenes(
-	id int(255) auto_increment PRIMARY KEY,
-    id_categoria int(255),
-    imagen varchar(255) not null,
-    ruta varchar(255) not null,
-    fecha_registro date not null,
-    FOREIGN KEY (id_categoria) REFERENCES categorias(id)
-)ENGINE=InnoDb;
 
 CREATE TABLE productos(
 	id int(255) auto_increment PRIMARY KEY,
     id_usuario int(255),
     id_categoria int(255),
-    id_imagen int(255),
-    articulo varchar(100) unique not null,
+    producto varchar(100) unique not null,
     descripcion varchar(255) not null,
+    cantidad int(100),
     precio float not null,
     fecha_registro date not null,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
-    FOREIGN KEY (id_categoria) REFERENCES categorias(id),
-    FOREIGN KEY (id_imagen) REFERENCES imagenes(id)
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id)
 )ENGINE=InnoDb;
 
 CREATE TABLE clientes(
@@ -92,6 +84,8 @@ insert into clientes values (null,'1','Rosita','Colonia bosques del rio','rosita
 insert into clientes values (null,'1','Belen','Colonia el escalon','belen@gmail.com','22588778');
 insert into clientes values (null,'1','Marta','Colonia prados de veneci','marta@gmail.com','22224478');
 
+
+SELECT * FROM clientes ORDER BY id DESC LIMIT 0,5;
 
 
 

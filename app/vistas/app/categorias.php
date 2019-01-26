@@ -1,5 +1,10 @@
 <div class="container">
     <h4>Categorias</h4>
+    <?php
+        if(!empty($mensaje)){
+            echo "<p class='error-mensaje pink accent-3 pink-text text-lighten-5'>".$mensaje['mensaje']."</p>";
+        }
+    ?>
         <!-- BOTONES PRINCIPALES -->
         <div class="btn-container">
             <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons left">add</i>Agregar</a>
