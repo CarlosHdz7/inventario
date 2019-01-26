@@ -73,10 +73,10 @@
             <?php if(!empty($datos['categorias'])): ?>
                 <?php foreach($datos['categorias'] as $categoria): ?>
                 <tr>
-                    <td class="col-category"><?php echo $categoria->categoria; ?></td>
+                    <td><?php echo $categoria->categoria; ?></td>
                     <td class="hide"><?php echo $categoria->id; ?></td>
-                    <td><a class="waves-effect waves-light btn blue  modal-trigger btn-editar-categoria" href="#modal2"><i class="material-icons">edit</i></a></td>
-                    <td><a class="waves-effect waves-light btn red modal-trigger btn-borrar-categoria" href="#modal3"><i class="material-icons">delete</i></a></td>
+                    <td class="col-edit"><a class="waves-effect waves-light btn blue  modal-trigger btn-editar-categoria" href="#modal2"><i class="material-icons">edit</i></a></td>
+                    <td class="col-borrar"><a class="waves-effect waves-light btn red modal-trigger btn-borrar-categoria" href="#modal3"><i class="material-icons">delete</i></a></td>
                 </tr>
                 <?php endforeach;?>
             <?php else: ?>

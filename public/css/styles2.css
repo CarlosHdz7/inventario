@@ -64,8 +64,9 @@ body{
     table-layout: auto;
 }
 
-.col-category{
-    width: 70%;
+.col-edit,
+.col-borrar{
+    width: 85px;
 }
 
 .paginacion-container{
