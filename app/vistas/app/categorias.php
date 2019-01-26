@@ -3,8 +3,6 @@
         <!-- BOTONES PRINCIPALES -->
         <div class="btn-container">
             <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons left">add</i>Agregar</a>
-            <a class="waves-effect waves-light btn"><i class="material-icons left">find_in_page</i>Filtrar</a>
-            <a class="waves-effect waves-light btn"><i class="material-icons left">print</i>Imprimir</a>
         </div>
 
         <!-- MODAL AGREGAR CATEGORIA -->

@@ -34,12 +34,13 @@
             $categorias = $this->categoria->obtener_categorias( $desde, $cantidad_paginas );
             
             $datos= [
-                'categorias' => $categorias,
+                'categorias'    => $categorias,
                 'total_paginas' => $total_paginas,
-                'pagina'  => $pagina
+                'pagina'        => $pagina,
+                'titulo'        => 'Categorias'
             ];
 
-            $this->vista('app/header');
+            $this->vista('app/header',$datos);
             $this->vista('app/categorias',$datos);
             $this->vista('app/footer');
         }

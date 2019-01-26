@@ -5,6 +5,19 @@ $(document).ready(function(){
     $('.fixed-action-btn').floatingActionButton();
     $('.modal').modal();
 
+    //COLORES DEL NAVBAR EN LA APP
+    //---------------------------------
+    var title = $('title').text();
+
+
+    if(title == 'Clientes'){
+        $('.btn-clientes-nav').addClass('teal lighten-1');
+    }
+    if(title == 'Categorias' || title == 'Productos'){
+        $('.btn-administrar-nav').addClass('teal lighten-1');
+    }
+
+    //--------------------------------
     //EDITAR Y BORRAR CLIENTE
 
     //Editar

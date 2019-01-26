@@ -6,7 +6,7 @@
             $this->usuario = $this->modelo('Usuario');
         }
 
-        public function index(){
+/*         public function index(){
             $clientes = $this->cliente->obtener();
             $datos= [
                 'clientes' => $clientes
@@ -15,7 +15,7 @@
             $this->vista('app/header');
             $this->vista('app/clientes',$datos);
             $this->vista('app/footer');
-        }
+        } */
 
         public function pagina($pagina = null){
             //variables
@@ -39,12 +39,14 @@
             $clientes = $this->cliente->obtener_clientes( $desde, $cantidad_paginas );
             
             $datos= [
-                'clientes' => $clientes,
+                'clientes'      => $clientes,
                 'total_paginas' => $total_paginas,
-                'pagina'  => $pagina
+                'pagina'        => $pagina,
+                'titulo'        => 'Clientes'
             ];
 
-            $this->vista('app/header');
+
+            $this->vista('app/header',$datos);
             $this->vista('app/clientes',$datos);
             $this->vista('app/footer');
         }
