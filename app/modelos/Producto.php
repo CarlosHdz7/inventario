@@ -35,6 +35,24 @@
             }
         }
 
+        public function editar($id,$producto,$descripcion,$cantidad,$precio,$categoria,$fecha_registro){
+            $this->db->query("UPDATE productos SET producto=:producto,descripcion=:descripcion, cantidad=:cantidad, precio=:precio, id_categoria=:categoria, fecha_registro=:fecha_registro WHERE id=:id");
+            
+            $this->db->bind(':id',$id);
+            $this->db->bind(':producto',$producto);
+            $this->db->bind(':descripcion',$descripcion);
+            $this->db->bind(':cantidad',$cantidad);
+            $this->db->bind(':precio',$precio);
+            $this->db->bind(':categoria',$categoria);
+            $this->db->bind(':fecha_registro',$fecha_registro);
+
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         
         public function total_productos(){
             $this->db->query('SELECT count(*) as total FROM productos');

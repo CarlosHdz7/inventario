@@ -22,6 +22,14 @@ $(document).ready(function(){
         $('.btn-administrar-nav').addClass('teal lighten-1');
     }
 
+    $('.cantidad').each(function(){
+        if(parseInt($(this).text()) > 10){
+            $(this).addClass('blue-text');
+        } else {
+            $(this).addClass('red-text');
+        }
+    });
+
     //--------------------------------
     //EDITAR Y BORRAR CLIENTE
 
@@ -51,6 +59,8 @@ $(document).ready(function(){
     });
 
     //EDITAR Y BORRAR CATEGORIA
+
+    //Editar
     $('.btn-editar-categoria').on('click',function(){
         var fila = $(this).parent();
         var columnas = $(fila).siblings();
@@ -59,6 +69,7 @@ $(document).ready(function(){
         $(".edit-id").val(columnas[1].innerHTML);   //id del cliente
     });
 
+    //Borrar
     $('.btn-borrar-categoria').on('click',function(){
         var fila = $(this).parent();
         var columnas = $(fila).siblings();
@@ -69,6 +80,20 @@ $(document).ready(function(){
         var href = $('.btn-aceptar-borrar').attr('href');
         href = href + columnas[1].innerHTML; //se concatena el id
         $('.btn-aceptar-borrar').attr('href',href);
+    });
+
+    //EDITAR Y BORRAR PRODUCTO
+
+    //Editar
+    $('.btn-editar-producto').on('click',function(){
+        var fila = $(this).parent();
+        var columnas = $(fila).siblings();
+        
+        $(".edit-producto").val(columnas[0].innerHTML); //nombre del cliente
+        $(".edit-descripcion").val(columnas[1].innerHTML); //nombre del cliente
+        $(".edit-precio").val(columnas[3].innerHTML); //nombre del cliente
+        $(".edit-cantidad").val(columnas[4].innerHTML); //nombre del cliente
+        $(".edit-id").val(columnas[5].innerHTML);   //id del cliente
     });
 });
         

@@ -41,9 +41,9 @@
         public function editar($categoria,$fecha_registro,$id){
             $this->db->query("UPDATE categorias SET categoria=:categoria,fecha_registro=:fecha_registro WHERE id=:id");
             
+            $this->db->bind(':id',$id);
             $this->db->bind(':categoria',$categoria);
             $this->db->bind(':fecha_registro',$fecha_registro);
-            $this->db->bind(':id',$id);
 
             if($this->db->execute()){
                 return true;

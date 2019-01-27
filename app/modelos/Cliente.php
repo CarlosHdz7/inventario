@@ -41,11 +41,11 @@
         public function editar($cliente,$direccion,$email,$telefono,$id, $fecha_registro){
             $this->db->query("UPDATE clientes SET cliente=:cliente,direccion=:direccion, email=:email, telefono=:telefono, fecha_registro=:fecha_registro WHERE id=:id");
             
+            $this->db->bind(':id',$id);
             $this->db->bind(':cliente',$cliente);
             $this->db->bind(':direccion',$direccion);
             $this->db->bind(':email',$email);
             $this->db->bind(':telefono',$telefono);
-            $this->db->bind(':id',$id);
             $this->db->bind(':fecha_registro',$fecha_registro);
 
             if($this->db->execute()){

@@ -60,6 +60,53 @@
         </div>
     </div>
 
+        <!-- MODAL EDITAR PRODUCTOS -->
+        <div id="modal2" class="modal modal-fixed-footer modal2-cliente">
+        <div class="modal-content">
+            <h4>Editar un producto</h4>
+            <p>Rellenar todos los campos</p>
+            <div class="row">
+                <form action="<?php echo RUTA_URL?>/productos/editar" method="POST" class="col s12" name="editProductos">
+                    
+                    <div class="input-field col s12 m6">
+                        <input id="producto" placeholder="Producto" type="text" class="validate edit-producto" name="producto">
+                        <label for="producto">Producto</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <select name="categoria">
+                            <option value="" disabled selected>Elije una opción</option>
+                            <?php foreach($datos['categorias'] as $categoria): ?>
+                            <option value="<?php echo $categoria->id;?>"><?php echo $categoria->categoria;?></option>
+                            <?php endforeach;?>
+                        </select>
+                        <label>Categoría</label>
+                    </div>
+
+                    <div class="input-field col s12 m12">
+                        <input id="descripcion" placeholder="Descripción" type="text" class="validate edit-descripcion" name="descripcion">
+                        <label for="descripcion">Descripcion</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="precio" placeholder="Precio" type="text" class="validate edit-precio" name="precio">
+                        <label for="precio">Precio</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <input id="cantidad" placeholder="Cantidad" type="text" class="validate edit-cantidad" name="cantidad">
+                        <label for="cantidad">Cantidad</label>
+                    </div>
+                    
+                    <input class="validate edit-id" type="hidden" name="id">
+                
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn waves-effect waves-light" name="action" onclick="editProductos.submit()">Editar</button>
+            <button class="btn waves-effect waves-light modal-close red">Cancelar</button>
+        </div>
+    </div>
+
     <!-- TABLA DE PRODUCTOS -->
     <table class="white striped card-panel tabla-clientes responsive-table z-depth-3">
         <thead>
@@ -82,7 +129,7 @@
                 <td><?php echo $producto->descripcion; ?></td>
                 <td><?php echo $producto->categoria; ?></td>
                 <td>$<?php echo $producto->precio; ?></td>
-                <td><?php echo $producto->cantidad; ?></td>
+                <td class="cantidad"><?php echo $producto->cantidad; ?></td>
                 <td class="hide"><?php echo $producto->id; ?></td>
                 <td class="col-edit"><a class="waves-effect waves-light btn blue  modal-trigger btn-editar-producto" href="#modal2"><i class="material-icons">edit</i></a></td>
                 <td class="col-borrar"><a class="waves-effect waves-light btn red modal-trigger btn-borrar-producto" href="#modal3"><i class="material-icons">delete</i></a></td>

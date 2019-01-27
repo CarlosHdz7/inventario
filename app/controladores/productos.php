@@ -2,8 +2,8 @@
     class Productos extends Controlador{
 
         public function __construct(){
-            $this->producto = $this->modelo('Producto');
-            $this->usuario = $this->modelo('Usuario');
+            $this->producto  = $this->modelo('Producto');
+            $this->usuario   = $this->modelo('Usuario');
             $this->categoria = $this->modelo('Categoria');
         }
 
@@ -53,7 +53,7 @@
                 $categoria      = trim($_POST['categoria']);
                 $fecha_registro = date('Y-m-d');
 
-                if($producto == "" || $descripcion == "" || $cantidad == "" || $precio =="" || $categoria == ""){
+                if($producto == "" || $descripcion == "" || $cantidad == "" || $precio =="" || $categoria == "" || $fecha_registro == ""){
                     die('Por favor llenar los campos');
                 } else {
                     $usuario = $this->usuario->obtener_id( $_SESSION['usuario'] );
@@ -63,6 +63,30 @@
                         redireccionar('/productos/pagina/1');
                     } else {
                         die('No se pudo registrar cliente');
+                    }
+
+                }
+            }
+        }
+
+        public function editar(){
+            
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $id         = trim($_POST['id']);
+                $producto    = trim($_POST['producto']); 
+                $descripcion = trim($_POST['descripcion']);
+                $cantidad    = trim($_POST['cantidad']);
+                $precio      = trim($_POST['precio']);
+                $categoria      = trim($_POST['categoria']);
+                $fecha_registro = date('Y-m-d');
+
+                if($id == "" || $producto == "" || $descripcion == "" || $cantidad == "" || $precio =="" || $categoria == "" || $fecha_registro == ""){
+                    die('Por favor llenar los campos');
+                } else {
+                    if($this->producto->editar($id,$producto,$descripcion,$cantidad,$precio,$categoria,$fecha_registro)){
+                        redireccionar('/productos/pagina/1');
+                    } else {
+                        die('No se pudo editar producto');
                     }
 
                 }
