@@ -18,8 +18,8 @@
                 <div class="row">
                     <form action="<?php echo RUTA_URL?>/categorias/agregar" method="POST" class="col s12" name="addCategoria">
                         <div class="input-field col s12 m6">
-                            <input id="categoria" type="text" class="validate" name="categoria">
-                            <label for="categoria">Categoria</label>
+                            <input id="categoria" type="text" class="validate" name="categoria" minlength="4" maxlength="15" required="" aria-required="true">
+                            <label for="categoria" >Categoria</label>
                         </div>
                     </form>
                 </div>
@@ -53,7 +53,7 @@
         <!-- MODAL BORRAR CATEGORIA -->
         <div id="modal3" class="modal">
             <div class="modal-content">
-            <h4>¿Desea eliminar el siguiente categoria?</h4>
+            <h4>¿Desea eliminar la siguiente categoria?</h4>
             <p class="nombre-categoria">Cliente</p>
             </div>
             <div class="modal-footer">

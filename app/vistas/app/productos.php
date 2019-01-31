@@ -60,8 +60,8 @@
         </div>
     </div>
 
-        <!-- MODAL EDITAR PRODUCTOS -->
-        <div id="modal2" class="modal modal-fixed-footer modal2-cliente">
+    <!-- MODAL EDITAR PRODUCTOS -->
+    <div id="modal2" class="modal modal-fixed-footer modal2-cliente">
         <div class="modal-content">
             <h4>Editar un producto</h4>
             <p>Rellenar todos los campos</p>
@@ -106,6 +106,18 @@
             <button class="btn waves-effect waves-light modal-close red">Cancelar</button>
         </div>
     </div>
+
+    <!-- MODAL BORRAR PRODUCTOS -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+        <h4>¿Desea eliminar el siguiente producto?</h4>
+        <p class="nombre-producto">Producto</p>
+        </div>
+        <div class="modal-footer">
+            <a href="<?php echo RUTA_URL?>/productos/borrar/" class="btn modal-close waves-effect waves-light btn-aceptar-borrar">Aceptar</a>
+            <a class="btn modal-close waves-effect waves-light  red">Cancelar</a>
+        </div>
+    </div> 
 
     <!-- TABLA DE PRODUCTOS -->
     <table class="white striped card-panel tabla-clientes responsive-table z-depth-3">

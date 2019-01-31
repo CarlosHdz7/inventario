@@ -95,5 +95,18 @@ $(document).ready(function(){
         $(".edit-cantidad").val(columnas[4].innerHTML); //nombre del cliente
         $(".edit-id").val(columnas[5].innerHTML);   //id del cliente
     });
+
+    //Borrar
+    $('.btn-borrar-producto').on('click',function(){
+        var fila = $(this).parent();
+        var columnas = $(fila).siblings();
+        $(".nombre-producto").text(columnas[0].innerHTML);
+
+        //Se le asigna el id a la url del boton aceptar para enviarselo
+        //la funcion borrar
+        var href = $('.btn-aceptar-borrar').attr('href');
+        href = href + columnas[5].innerHTML; //se concatena el id
+        $('.btn-aceptar-borrar').attr('href',href);
+    });
 });
         

@@ -3,10 +3,10 @@
             <i class="large material-icons blue-grey darken-4">settings_applications</i>
         </a>
         <ul>
-            <li><a class="btn-floating  cyan darken-4"><i class="material-icons">insert_chart</i></a></li>
-            <li><a class="btn-floating  cyan darken-4"><i class="material-icons">format_quote</i></a></li>
-            <li><a class="btn-floating  cyan darken-4"><i class="material-icons">publish</i></a></li>
-            <li><a class="btn-floating  cyan darken-4"><i class="material-icons">attach_file</i></a></li>
+            <li><a class="btn-floating teal lighten-1"><i class="material-icons">insert_chart</i></a></li>
+            <li><a class="btn-floating teal lighten-1"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating teal lighten-1"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating teal lighten-1"><i class="material-icons">attach_file</i></a></li>
         </ul>
     </div>
 

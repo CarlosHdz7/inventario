@@ -49,7 +49,7 @@
     <ul class="sidenav" id="mobile-demo">
         <li><a href="<?php echo RUTA_URL?>/app/inicio"><i class="material-icons left">home</i>Inicio</a></li>
         <!-- Dropdown Trigger -->
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons">home</i>Administrar<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons">view_column</i>Administrar<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a href="<?php echo RUTA_URL?>/clientes/pagina/1"><i class="material-icons left">people</i>Clientes</a></li>
         <li><a href="<?php echo RUTA_URL?>/vender"><i class="material-icons left">attach_money</i>Vender</a></li>
         <li><a href="<?php echo RUTA_URL?>/inicio/cerrar_sesion"><i class="material-icons left">exit_to_app</i>Cerrar sesión</a></li>

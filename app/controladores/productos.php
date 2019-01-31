@@ -92,4 +92,12 @@
                 }
             }
         }
+
+        public function borrar($id){
+            if($this->producto->borrar($id)){
+                redireccionar('/productos/pagina/1');
+            } else {
+                die('No se pudo borrar producto');
+            }
+        }
     }

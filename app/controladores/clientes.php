@@ -101,7 +101,7 @@
 
         public function borrar($id){
             if($this->cliente->borrar($id)){
-                redireccionar('/clientes/pagina');
+                redireccionar('/clientes/pagina/1');
             } else {
                 die('No se pudo borrar cliente');
             }

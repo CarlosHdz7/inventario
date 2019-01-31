@@ -6,7 +6,11 @@
         }
 
         public function index(){
-            $this->vista('app/header');
+            $datos= [
+                'titulo'        => 'Vender'
+            ];
+
+            $this->vista('app/header',$datos);
             $this->vista('app/vender');
             $this->vista('app/footer');
         }

@@ -53,6 +53,17 @@
             }
         }
 
+        public function borrar($id){
+            
+            $this->db->query('DELETE FROM productos  WHERE id = :id');
+            $this->db->bind(':id',$id);
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         
         public function total_productos(){
             $this->db->query('SELECT count(*) as total FROM productos');

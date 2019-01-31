@@ -47,6 +47,7 @@ CREATE TABLE clientes(
     direccion varchar(255) null,
     email varchar(255) null,
     telefono varchar(15) null,
+    fecha_registro date not null,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 )ENGINE=InnoDb;
 
@@ -70,22 +71,22 @@ select * from clientes;
 
 insert into clientes values (null,'1','Carlos','Colonia bosques del rio','carlos@gmail.com','22584367');
 insert into clientes values (null,'1','Melissa','Colonia las margaritas','melisa@gmail.com','22588888');
-insert into clientes values (null,'1','Andrea','Colonia prados de venecia','andrea@gmail.com','2256278');
-insert into clientes values (null,'1','Estefany','Colonia guadalupe','estefany@gmail.com','22588778');
-insert into clientes values (null,'1','Erickson','Colonia bosques del rio','erickson@gmail.com','23588778');
-insert into clientes values (null,'1','Claridad','Colonia las margaritas','claridad@gmail.com','27588578');
-insert into clientes values (null,'1','Maggie','Colonia montes 3','maggie@gmail.com','22588778');
-insert into clientes values (null,'1','David','Colonia el escalon','david@gmail.com','22588778');
-insert into clientes values (null,'1','Roberto','Colonia bosques del rio','roberto@gmail.com','22588778');
-insert into clientes values (null,'1','Cecilia','Colonia bosques del rio','cecilia@gmail.com','22588778');
-insert into clientes values (null,'1','Victoria','Colonia montes 3','victoria@gmail.com','22588778');
-insert into clientes values (null,'1','Armando','Colonia las margaritas','armando@gmail.com','22905774');
-insert into clientes values (null,'1','Elias','Colonia bosques del rio','elias@gmail.com','22588778');
-insert into clientes values (null,'1','Ester','Colonia bosques del rio','ester@gmail.com','22182545');
-insert into clientes values (null,'1','Diana','Colonia el escalon','diana@gmail.com','22588778');
-insert into clientes values (null,'1','Rosita','Colonia bosques del rio','rosita@gmail.com','22231264');
-insert into clientes values (null,'1','Belen','Colonia el escalon','belen@gmail.com','22588778');
-insert into clientes values (null,'1','Marta','Colonia prados de veneci','marta@gmail.com','22224478');
+insert into clientes values (null,'1','Andrea','Colonia prados de venecia','andrea@gmail.com','2256278','2019-01-26');
+insert into clientes values (null,'1','Estefany','Colonia guadalupe','estefany@gmail.com','22588778','2019-01-26');
+insert into clientes values (null,'1','Erickson','Colonia bosques del rio','erickson@gmail.com','23588778','2019-01-26');
+insert into clientes values (null,'1','Claridad','Colonia las margaritas','claridad@gmail.com','27588578','2019-01-26');
+insert into clientes values (null,'1','Maggie','Colonia montes 3','maggie@gmail.com','22588778','2019-01-26');
+insert into clientes values (null,'1','David','Colonia el escalon','david@gmail.com','22588778','2019-01-26');
+insert into clientes values (null,'1','Roberto','Colonia bosques del rio','roberto@gmail.com','22588778','2019-01-26');
+insert into clientes values (null,'1','Cecilia','Colonia bosques del rio','cecilia@gmail.com','22588778','2019-01-26');
+insert into clientes values (null,'1','Victoria','Colonia montes 3','victoria@gmail.com','22588778','2019-01-26');
+insert into clientes values (null,'1','Armando','Colonia las margaritas','armando@gmail.com','22905774','2019-01-26');
+insert into clientes values (null,'1','Elias','Colonia bosques del rio','elias@gmail.com','22588778','2019-01-26');
+insert into clientes values (null,'1','Ester','Colonia bosques del rio','ester@gmail.com','22182545','2019-01-26');
+insert into clientes values (null,'1','Diana','Colonia el escalon','diana@gmail.com','22588778','2019-01-26');
+insert into clientes values (null,'1','Rosita','Colonia bosques del rio','rosita@gmail.com','22231264','2019-01-26');
+insert into clientes values (null,'1','Belen','Colonia el escalon','belen@gmail.com','22588778','2019-01-26');
+insert into clientes values (null,'1','Marta','Colonia prados de veneci','marta@gmail.com','22224478','2019-01-26');
 
 
 
