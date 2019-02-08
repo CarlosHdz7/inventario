@@ -20,6 +20,11 @@
             return $this->db->obtenerRegistros();
         }
 
+        public function obtener_clientes2(){
+            $this->db->query('SELECT * FROM clientes');
+            return $this->db->obtenerRegistros();
+        }
+
         public function agregar($id_usuario,$cliente,$direccion,$email,$telefono, $fecha_registro){
             
             $this->db->query("INSERT INTO clientes (id,id_usuario,cliente,direccion,email,telefono,fecha_registro) VALUES (null,:id_usuario,:cliente,:direccion,:email,:telefono,:fecha_registro)");

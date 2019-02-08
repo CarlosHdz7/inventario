@@ -4,8 +4,8 @@ $(document).ready(function(){
     $(".dropdown-trigger").dropdown();
     $('.fixed-action-btn').floatingActionButton();
     $('.modal').modal();
-    $('select').formSelect();
     $('.tooltipped').tooltip();
+    $('select').formSelect();
 
     //COLORES DEL NAVBAR EN LA APP
     //---------------------------------
@@ -108,5 +108,38 @@ $(document).ready(function(){
         href = href + columnas[5].innerHTML; //se concatena el id
         $('.btn-aceptar-borrar').attr('href',href);
     });
+
 });
+
+function cargar_productos(){
+    var categoria = $('#select-categoria').val();
+    console.log(categoria);
+    var link = $('#form-agregar-producto').attr('action') + categoria;
+
+    
+    $.ajax({
+        url:link,
+        type: 'POST',
+        dataType:'json',
+        success: function(json){
+            $('#select-productos').find('option').remove();
+
+            var count = Object.keys(json).length;
+            for(var i = 0; i < count; i++){
+                $('#select-productos').append(
+                    $("<option></option>").html(json[i]['producto'])
+                );
+            }
+
+            $('#select-productos').formSelect()
+
+/*             console.log(json[0]['producto'])
+            console.log(json[1]['producto'])
+            console.log("exito"); */
+        },
+        error:function(){
+            console.log("error");
+        }
+    });
+}
         

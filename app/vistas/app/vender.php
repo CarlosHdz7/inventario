@@ -2,33 +2,30 @@
     <h4>Vender</h4>
     <div class="row">
         <div class="col s12 m6">
-            <form action="" class="row white tabla-agregar-producto z-depth-2">
+            <form id="form-agregar-producto" action="<?php echo RUTA_URL?>/productos/obtener_productos_por_categoria/" class="row white tabla-agregar-producto z-depth-2">
                 <div class="input-field col s12">
                     <select>
                     <option value="" disabled selected>Seleccione un cliente</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <?php foreach($datos['clientes'] as $cliente): ?>
+                        <option value="<?php echo $cliente->id?>"><?php echo $cliente->cliente; ?></option>
+                    <?php endforeach;?>
                     </select>
                     <label>Cliente</label>
                 </div>
 
                 <div class="input-field col s12">
-                    <select>
+                    <select onchange="cargar_productos()" id="select-categoria">
                     <option value="" disabled selected>Seleccione una categoria</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <?php foreach($datos['categorias'] as $categoria): ?>
+                        <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->categoria; ?></option>
+                    <?php endforeach;?>                    
                     </select>
                     <label>Categoria</label>
                 </div>
 
                 <div class="input-field col s12">
-                    <select>
-                    <option value="" disabled selected>Seleccione un producto</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <select id="select-productos">
+                        <option value="" disabled selected>Seleccione un producto</option> 
                     </select>
                     <label>Producto</label>
                 </div>

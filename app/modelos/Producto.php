@@ -15,6 +15,12 @@
             return $this->db->obtenerRegistros();
         }
 
+        public function obtener_productos_por_categoria($categoria){
+            $this->db->query('SELECT * FROM productos WHERE id_categoria = :id_categoria');
+            $this->db->bind(':id_categoria',$categoria);
+            return $this->db->obtenerRegistros();
+        }
+
         public function agregar($id_usuario,$categoria,$producto,$descripcion,$cantidad,$precio,$fecha_registro){
             
             $this->db->query("INSERT INTO productos (id,id_usuario,id_categoria,producto,descripcion,cantidad,precio,fecha_registro) VALUES 

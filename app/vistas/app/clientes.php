@@ -118,19 +118,24 @@
         <tbody>
         <?php if(!empty($datos['clientes'])): ?>
             <?php foreach($datos['clientes'] as $cliente): ?>
-            <tr>
-                <td><?php echo $cliente->cliente; ?></td>
-                <td><?php echo $cliente->direccion; ?></td>
-                <td><?php echo $cliente->telefono; ?></td>
-                <td><?php echo $cliente->email; ?></td>
-                <td class="hide"><?php echo $cliente->id; ?></td>
-                <td class="col-edit"><a class="waves-effect waves-light btn blue  modal-trigger btn-editar-cliente" href="#modal2"><i class="material-icons">edit</i></a></td>
-                <td class="col-borrar"><a class="waves-effect waves-light btn red modal-trigger btn-borrar-cliente" href="#modal3"><i class="material-icons">delete</i></a></td>
-            </tr>
+                <?php 
+                    if($cliente->id == 2){
+                        continue;
+                    }
+                ?>
+                <tr>
+                    <td><?php echo $cliente->cliente; ?></td>
+                    <td><?php echo $cliente->direccion; ?></td>
+                    <td><?php echo $cliente->telefono; ?></td>
+                    <td><?php echo $cliente->email; ?></td>
+                    <td class="hide"><?php echo $cliente->id; ?></td>
+                    <td class="col-edit"><a class="waves-effect waves-light btn blue  modal-trigger btn-editar-cliente" href="#modal2"><i class="material-icons">edit</i></a></td>
+                    <td class="col-borrar"><a class="waves-effect waves-light btn red modal-trigger btn-borrar-cliente" href="#modal3"><i class="material-icons">delete</i></a></td>
+                </tr>
             <?php endforeach;?>
         <?php else: ?>
-            <tr colspan="6">
-                No hay clientes registrados
+            <tr>
+                <td colspan="6">No hay clientes registradas</td>
             </tr>
         <?php endif; ?>
         </tbody>

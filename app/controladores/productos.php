@@ -100,4 +100,10 @@
                 die('No se pudo borrar producto');
             }
         }
+
+        public function obtener_productos_por_categoria($id_categoria){
+            $producto =$this->producto->obtener_productos_por_categoria($id_categoria);
+           // return json_encode($producto);
+           echo json_encode($producto);
+        }
     }
