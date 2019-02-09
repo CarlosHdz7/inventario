@@ -112,8 +112,8 @@ $(document).ready(function(){
 });
 
 function cargar_productos(){
-    var categoria = $('#select-categoria').val();
-    console.log(categoria);
+    
+    var categoria = $('#select-categorias').val();
     var link = $('#form-agregar-producto').attr('action') + categoria;
 
     
@@ -127,9 +127,19 @@ function cargar_productos(){
             var count = Object.keys(json).length;
             for(var i = 0; i < count; i++){
                 $('#select-productos').append(
-                    $("<option></option>").html(json[i]['producto'])
-                );
+                    $("<option></option>").val(json[i]['id']).html(json[i]['producto'])
+                    );
+                }
+                
+            if($('#select-productos').val() === "" && $('#select-categorias').val() === "" && $('#select-clientes').val() === ""){
+               $('.agregar-venta').attr('disabled',true) 
+            } else {
+               $('.agregar-venta').attr('disabled',false) 
             }
+
+            console.log($('#select-productos').prop('selectedIndex'));
+            console.log($('#select-categorias').prop('selectedIndex'));
+            console.log($('#select-clientes').prop('selectedIndex'));
 
             $('#select-productos').formSelect()
 

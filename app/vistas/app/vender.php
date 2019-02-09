@@ -4,21 +4,21 @@
         <div class="col s12 m6">
             <form id="form-agregar-producto" action="<?php echo RUTA_URL?>/productos/obtener_productos_por_categoria/" class="row white tabla-agregar-producto z-depth-2">
                 <div class="input-field col s12">
-                    <select>
-                    <option value="" disabled selected>Seleccione un cliente</option>
-                    <?php foreach($datos['clientes'] as $cliente): ?>
-                        <option value="<?php echo $cliente->id?>"><?php echo $cliente->cliente; ?></option>
-                    <?php endforeach;?>
+                    <select id="select-clientes">
+                        <option value="" disabled selected>Seleccione un cliente</option>
+                        <?php foreach($datos['clientes'] as $cliente): ?>
+                            <option value="<?php echo $cliente->id?>"><?php echo $cliente->cliente; ?></option>
+                        <?php endforeach;?>
                     </select>
                     <label>Cliente</label>
                 </div>
 
                 <div class="input-field col s12">
-                    <select onchange="cargar_productos()" id="select-categoria">
-                    <option value="" disabled selected>Seleccione una categoria</option>
-                    <?php foreach($datos['categorias'] as $categoria): ?>
-                        <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->categoria; ?></option>
-                    <?php endforeach;?>                    
+                    <select id="select-categorias" onchange="cargar_productos()">
+                        <option value="" disabled selected>Seleccione una categoria</option>
+                        <?php foreach($datos['categorias'] as $categoria): ?>
+                            <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->categoria; ?></option>
+                        <?php endforeach;?>                    
                     </select>
                     <label>Categoria</label>
                 </div>
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="col s12">
-                    <a class="waves-effect waves-light btn">Agregar</a>
+                    <a class="waves-effect waves-light btn agregar-venta" disabled>Agregar</a>
                     <a class="waves-effect waves-light btn red">Vaciar</a>
                 </div>          
             </form>
