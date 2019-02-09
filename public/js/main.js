@@ -109,6 +109,18 @@ $(document).ready(function(){
         $('.btn-aceptar-borrar').attr('href',href);
     });
 
+    $('.agregar-venta').on('click',function(){
+        console.log('Clientes: ' + $('#select-clientes').prop('selectedIndex'));
+        console.log('Categorias: ' + $('#select-categorias').prop('selectedIndex'));
+        console.log('Productos: ' + $('#select-productos').prop('selectedIndex'));
+
+        if($('#select-clientes').prop('selectedIndex') == 0 || $('#select-categorias').prop('selectedIndex') == 0 || $('#select-productos').prop('selectedIndex') == 0){
+            console.log('error');
+        } else {
+            console.log('success');
+        }
+    });
+
 });
 
 function cargar_productos(){
@@ -123,24 +135,17 @@ function cargar_productos(){
         dataType:'json',
         success: function(json){
             $('#select-productos').find('option').remove();
+            $('#select-productos').append(
+                $("<option disabled selected></option>").val("").html('Seleccione un producto')
+            );
 
             var count = Object.keys(json).length;
             for(var i = 0; i < count; i++){
                 $('#select-productos').append(
                     $("<option></option>").val(json[i]['id']).html(json[i]['producto'])
-                    );
-                }
-                
-            if($('#select-productos').val() === "" && $('#select-categorias').val() === "" && $('#select-clientes').val() === ""){
-               $('.agregar-venta').attr('disabled',true) 
-            } else {
-               $('.agregar-venta').attr('disabled',false) 
+                );
             }
-
-            console.log($('#select-productos').prop('selectedIndex'));
-            console.log($('#select-categorias').prop('selectedIndex'));
-            console.log($('#select-clientes').prop('selectedIndex'));
-
+                
             $('#select-productos').formSelect()
 
 /*             console.log(json[0]['producto'])
@@ -152,4 +157,5 @@ function cargar_productos(){
         }
     });
 }
-        
+
+  

@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="col s12">
-                    <a class="waves-effect waves-light btn agregar-venta" disabled>Agregar</a>
+                    <a class="waves-effect waves-light btn agregar-venta">Agregar</a>
                     <a class="waves-effect waves-light btn red">Vaciar</a>
                 </div>          
             </form>
