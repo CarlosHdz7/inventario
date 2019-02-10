@@ -127,6 +127,9 @@ $(document).ready(function(){
 
 }); //fin del on ready
 
+
+//Esta funcion carga los productos de acuerdo a su categoria
+//Esta se llama desde el evento onchange del select
 function cargar_productos(){
     
     var categoria = $('#select-categorias').val();
@@ -164,6 +167,8 @@ function llenar_select_productos(json){
     $('#select-productos').formSelect()
 }
 
+//Esta funcion carga la cantidad de un producto en el range
+//Esta se llama desde el evento onchange del select
 function cargar_cantidad_range(){
     var id_producto = $('#select-productos').val();
     var link = $('#form-agregar-producto').attr('action') + "obtener_cantidad_producto/" + id_producto;

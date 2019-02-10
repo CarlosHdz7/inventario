@@ -1,5 +1,5 @@
 <div class="container">
-    <h4>Vender</h4>
+    <h4>Agregar producto</h4>
     <div class="row">
         <div class="col s12 m6">
             <form id="form-agregar-producto" action="<?php echo RUTA_URL?>/productos/" class="row white tabla-agregar-producto z-depth-2">
@@ -33,7 +33,7 @@
                 <div class="input-field col s12">
                     <p>Cantidad</p>
                     <p class="range-field">
-                        <input type="range" id="rango-cantidad" min="0" max="0" />
+                        <input type="range" id="rango-cantidad" min="0" max="0" name="cantidad" value=""/>
                     </p>
                 </div>
 
@@ -43,8 +43,9 @@
                 </div>          
             </form>
         </div>
+
         <div class="col s12 m6">
-            <p>Productos</p>
+            <h4>Carrito<i class="material-icons">shopping_cart</i></h4>
             <table class="card striped">
                 <thead>
                 <tr>
