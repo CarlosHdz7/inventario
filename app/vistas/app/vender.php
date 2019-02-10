@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <p>Cantidad</p>
+                    <p>Cantidad <span class="new badge badge-cantidad teal lighten-1" data-badge-caption="">0</span></p>
                     <p class="range-field">
                         <input type="range" id="rango-cantidad" min="0" max="0" name="cantidad" value=""/>
                     </p>

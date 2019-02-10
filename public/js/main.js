@@ -113,6 +113,11 @@ $(document).ready(function(){
         $('.btn-aceptar-borrar').attr('href',href);
     });
 
+    //FUNCION PARA AGREGAR EL VALOR DE CANTIDAD AL BADGE
+    $('#rango-cantidad').on('change',function(){
+        $('.badge-cantidad').text($(this).val());
+    })
+    //BOTON PARA AGREGAR LA VENTA
     $('.agregar-venta').on('click',function(){
         console.log('Clientes: ' + $('#select-clientes').prop('selectedIndex'));
         console.log('Categorias: ' + $('#select-categorias').prop('selectedIndex'));
