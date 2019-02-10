@@ -7,6 +7,10 @@ $(document).ready(function(){
     $('.tooltipped').tooltip();
     $('select').formSelect();
 
+    $('#select-clientes').prop('selectedIndex',0);
+    $('#select-categorias').prop('selectedIndex',0);
+    $('#select-productos').prop('selectedIndex',0);
+
     //COLORES DEL NAVBAR EN LA APP
     //---------------------------------
     var title = $('title').text();
@@ -121,12 +125,12 @@ $(document).ready(function(){
         }
     });
 
-});
+}); //fin del on ready
 
 function cargar_productos(){
     
     var categoria = $('#select-categorias').val();
-    var link = $('#form-agregar-producto').attr('action') + categoria;
+    var link = $('#form-agregar-producto').attr('action') + "obtener_productos_por_categoria/"+ categoria;
 
     
     $.ajax({
@@ -134,26 +138,46 @@ function cargar_productos(){
         type: 'POST',
         dataType:'json',
         success: function(json){
-            $('#select-productos').find('option').remove();
-            $('#select-productos').append(
-                $("<option disabled selected></option>").val("").html('Seleccione un producto')
-            );
-
-            var count = Object.keys(json).length;
-            for(var i = 0; i < count; i++){
-                $('#select-productos').append(
-                    $("<option></option>").val(json[i]['id']).html(json[i]['producto'])
-                );
-            }
-                
-            $('#select-productos').formSelect()
-
-/*             console.log(json[0]['producto'])
-            console.log(json[1]['producto'])
-            console.log("exito"); */
+            llenar_select_productos(json)
         },
         error:function(){
-            console.log("error");
+            console.log("error al obtener los productos de una categoria");
+        }
+    });
+}
+
+//Esta funcion carga el select con los productos de acuerdo a la categoria con la info que devuelve el ajax
+function llenar_select_productos(json){
+    
+    $('#select-productos').find('option').remove();
+    $('#select-productos').append(
+        $("<option disabled selected></option>").val("").html('Seleccione un producto')
+    );
+
+    var count = Object.keys(json).length;
+    for(var i = 0; i < count; i++){
+        $('#select-productos').append(
+            $("<option></option>").val(json[i]['id']).html(json[i]['producto'])
+        );
+    }
+        
+    $('#select-productos').formSelect()
+}
+
+function cargar_cantidad_range(){
+    var id_producto = $('#select-productos').val();
+    var link = $('#form-agregar-producto').attr('action') + "obtener_cantidad_producto/" + id_producto;
+    console.log("id producto: "+id_producto);
+    $.ajax({
+        url:link,
+        type: 'POST',
+        dataType:'json',
+        success: function(json){
+            console.log('cantidad de producto: '+json['cantidad']);
+            $('#rango-cantidad').attr('max',json['cantidad']);
+        },
+        error:function(){
+            console.log("error al obtener la cantidad de un producto");
         }
     });
 }

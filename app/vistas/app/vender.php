@@ -2,7 +2,7 @@
     <h4>Vender</h4>
     <div class="row">
         <div class="col s12 m6">
-            <form id="form-agregar-producto" action="<?php echo RUTA_URL?>/productos/obtener_productos_por_categoria/" class="row white tabla-agregar-producto z-depth-2">
+            <form id="form-agregar-producto" action="<?php echo RUTA_URL?>/productos/" class="row white tabla-agregar-producto z-depth-2">
                 <div class="input-field col s12">
                     <select id="select-clientes">
                         <option value="" disabled selected>Seleccione un cliente</option>
@@ -24,15 +24,17 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <select id="select-productos">
+                    <select id="select-productos" onchange="cargar_cantidad_range()">
                         <option value="" disabled selected>Seleccione un producto</option> 
                     </select>
                     <label>Producto</label>
                 </div>
 
                 <div class="input-field col s12">
-                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                    <label for="first_name">Cantidad</label>
+                    <p>Cantidad</p>
+                    <p class="range-field">
+                        <input type="range" id="rango-cantidad" min="0" max="0" />
+                    </p>
                 </div>
 
                 <div class="col s12">
@@ -54,26 +56,14 @@
                 </thead>
 
                 <tbody>
-                <tr>
+<!--                 <tr>
                     <td>Detergente</td>
                     <td>$10</td>
                     <td>2</td>
                     <td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>
-                </tr>
+                </tr> -->
                 <tr>
-                    <td>Cuaderno</td>
-                    <td>$8</td>
-                    <td>$0.87</td>
-                    <td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>
-                </tr>
-                <tr>
-                    <td>Coca cola</td>
-                    <td>$12</td>
-                    <td>$0.87</td>
-                    <td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>
-                </tr>
-                <tr>
-                    <td colspan="3">
+                    <td colspan="4">
                         Total
                     </td>
                 </tr>

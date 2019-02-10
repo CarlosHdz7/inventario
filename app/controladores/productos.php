@@ -106,4 +106,10 @@
            // return json_encode($producto);
            echo json_encode($producto);
         }
+
+        public function obtener_cantidad_producto($id_producto){
+            $cantidad =$this->producto->obtener_cantidad_producto($id_producto);
+           // return json_encode($producto);
+           echo json_encode($cantidad);
+        }
     }

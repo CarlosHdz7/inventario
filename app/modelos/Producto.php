@@ -75,4 +75,11 @@
             $this->db->query('SELECT count(*) as total FROM productos');
             return $this->db->obtenerRegistro();
         }
+        
+
+        public function obtener_cantidad_producto($id_producto){
+            $this->db->query('SELECT cantidad FROM productos WHERE id=:id_producto');
+            $this->db->bind(':id_producto',$id_producto);
+            return $this->db->obtenerRegistro();
+        }
     }
