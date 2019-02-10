@@ -145,6 +145,20 @@ $(document).ready(function(){
                 '<td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>'+
                 '</tr>'
             );
+
+            //Resetear la tabla de agregar producto
+            $('#select-clientes').prop('selectedIndex',0);
+            $('#select-categorias').prop('selectedIndex',0);
+            $('#select-productos').find('option').remove();
+            $('#select-productos').append(
+                $("<option disabled selected></option>").val("").html('Seleccione un producto')
+            );
+            $('#rango-cantidad').val(0);
+            $('.badge-cantidad').text(0);
+
+            $('#select-clientes').formSelect();
+            $('#select-categorias').formSelect();
+            $('#select-productos').formSelect();
         }
     });
 
