@@ -66,8 +66,11 @@
                     <td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>
                 </tr> -->
                 <tr>
-                    <td colspan="4">
+                    <td colspan="1">
                         Total
+                    </td>
+                    <td colspan="3" class="row-total">
+                        0.0
                     </td>
                 </tr>
                 </tbody>

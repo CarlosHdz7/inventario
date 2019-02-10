@@ -11,6 +11,10 @@ $(document).ready(function(){
     $('#select-categorias').prop('selectedIndex',0);
     $('#select-productos').prop('selectedIndex',0);
 
+    $('#select-clientes').formSelect();
+    $('#select-categorias').formSelect();
+    $('#select-productos').formSelect();
+
     //COLORES DEL NAVBAR EN LA APP
     //---------------------------------
     var title = $('title').text();
@@ -138,11 +142,11 @@ $(document).ready(function(){
             var cantidad = $('#rango-cantidad').val();
 
             $('#carrito-producto').prepend(
-                '<tr>'+
+                '<tr class="row-producto">'+
                 '<td>'+producto+'</td>'+
-                '<td>'+precio+'</td>'+
-                '<td>'+cantidad+'</td>'+
-                '<td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>'+
+                '<td class="row-precio">'+precio+'</td>'+
+                '<td class="row-cantidad">'+cantidad+'</td>'+
+                '<td><a class="waves-effect waves-light btn quitar-producto red"><i class="material-icons">delete</i></a></td>'+
                 '</tr>'
             );
 
@@ -159,12 +163,48 @@ $(document).ready(function(){
             $('#select-clientes').formSelect();
             $('#select-categorias').formSelect();
             $('#select-productos').formSelect();
+
+            //CALCULAR EL TOTAL
+            var total = 0;
+            var fila = $('.row-producto');
+            $.each(fila, function(){
+                var precio   = $(this).find('.row-precio').text();
+                var cantidad = $(this).find('.row-cantidad').text();
+                total += cantidad * precio;
+            });
+
+            console.log(total);
+            $('.row-total').html(total);
+
+            //asignar el evento al boton borrar
+            remover_producto();
         }
     });
 
+    
 }); //fin del on ready
 
+//BOTON PARA QUITAR PRODUCTO
+function remover_producto(){
+    $('.quitar-producto').on('click',function(e){
+        e.preventDefault();
+		e.stopImmediatePropagation();
 
+        var columna = $(this).parent();
+        var fila = $(columna).parent();
+        
+        console.log("esta es la cantidad: "+$(fila).find('.row-cantidad').text());
+        console.log("esta es la precio: "+$(fila).find('.row-precio').text());
+
+        var cantidad = $(fila).find('.row-cantidad').text();
+        var precio = $(fila).find('.row-precio').text();
+
+        var descontar = cantidad * precio;
+        var total = $('.row-total').html();
+        $('.row-total').html(total - descontar);
+        $(fila).remove();
+    });
+}
 //Esta funcion carga los productos de acuerdo a su categoria
 //Esta se llama desde el evento onchange del select
 function cargar_productos(){
@@ -201,7 +241,7 @@ function llenar_select_productos(json){
         );
     }
         
-    $('#select-productos').formSelect()
+    $('#select-productos').formSelect();
 }
 
 //Esta funcion carga la cantidad de un producto en el range
