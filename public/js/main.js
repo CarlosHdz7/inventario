@@ -124,10 +124,27 @@ $(document).ready(function(){
         console.log('Productos: ' + $('#select-productos').prop('selectedIndex'));
         console.log('Cantidad: ' + $('#rango-cantidad').val());
 
+
+
+
         if($('#select-clientes').prop('selectedIndex') == 0 || $('#select-categorias').prop('selectedIndex') == 0 || $('#select-productos').prop('selectedIndex') == 0){
             console.log('error');
+
         } else {
             console.log('success');
+            var clientes = $('#select-clientes').val();
+            var producto = $('#select-productos option:selected').text();
+            var precio = $('#select-productos option:selected').attr('precio');
+            var cantidad = $('#rango-cantidad').val();
+
+            $('#carrito-producto').prepend(
+                '<tr>'+
+                '<td>'+producto+'</td>'+
+                '<td>'+precio+'</td>'+
+                '<td>'+cantidad+'</td>'+
+                '<td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>'+
+                '</tr>'
+            );
         }
     });
 
@@ -166,7 +183,7 @@ function llenar_select_productos(json){
     var count = Object.keys(json).length;
     for(var i = 0; i < count; i++){
         $('#select-productos').append(
-            $("<option></option>").val(json[i]['id']).html(json[i]['producto'])
+            $("<option></option>").val(json[i]['id']).html(json[i]['producto']).attr('precio',json[i]['precio'])
         );
     }
         

@@ -1,4 +1,5 @@
 <div class="container">
+    <!-- AGREGAR PRODUCTO -->
     <h4>Agregar producto</h4>
     <div class="row">
         <div class="col s12 m6">
@@ -44,20 +45,21 @@
             </form>
         </div>
 
+        <!-- CARRITO -->
         <div class="col s12 m6">
             <h4>Carrito<i class="material-icons">shopping_cart</i></h4>
             <table class="card striped">
                 <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
+                    <th class="col-producto">Producto</th>
+                    <th class="col-precio">Precio</th>
+                    <th class="col-cantidad">Cantidad</th>
                     <th class="col-borrar">Quitar</th>
                 </tr>
                 </thead>
 
-                <tbody>
-<!--                 <tr>
+                <tbody id="carrito-producto">
+<!--             <tr>
                     <td>Detergente</td>
                     <td>$10</td>
                     <td>2</td>
