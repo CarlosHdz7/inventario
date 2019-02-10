@@ -122,6 +122,7 @@ $(document).ready(function(){
         console.log('Clientes: ' + $('#select-clientes').prop('selectedIndex'));
         console.log('Categorias: ' + $('#select-categorias').prop('selectedIndex'));
         console.log('Productos: ' + $('#select-productos').prop('selectedIndex'));
+        console.log('Cantidad: ' + $('#rango-cantidad').val());
 
         if($('#select-clientes').prop('selectedIndex') == 0 || $('#select-categorias').prop('selectedIndex') == 0 || $('#select-productos').prop('selectedIndex') == 0){
             console.log('error');
@@ -184,7 +185,13 @@ function cargar_cantidad_range(){
         dataType:'json',
         success: function(json){
             console.log('cantidad de producto: '+json['cantidad']);
+
+            //El valor minimo sera 1 producto
+            $('#rango-cantidad').attr('min',1);
+            //El valor maximo sera el total de producto en existencia
             $('#rango-cantidad').attr('max',json['cantidad']);
+            $('#rango-cantidad').val(1);
+            $('.badge-cantidad').text(1);
         },
         error:function(){
             console.log("error al obtener la cantidad de un producto");
