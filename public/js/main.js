@@ -151,7 +151,7 @@ $(document).ready(function(){
             );
 
             //Resetear la tabla de agregar producto
-            $('#select-clientes').prop('selectedIndex',0);
+            //$('#select-clientes').prop('selectedIndex',0);
             $('#select-categorias').prop('selectedIndex',0);
             $('#select-productos').find('option').remove();
             $('#select-productos').append(
@@ -160,10 +160,9 @@ $(document).ready(function(){
             $('#rango-cantidad').val(0);
             $('.badge-cantidad').text(0);
 
-            $('#select-clientes').formSelect();
             $('#select-categorias').formSelect();
             $('#select-productos').formSelect();
-
+            
             //CALCULAR EL TOTAL
             var total = 0;
             var fila = $('.row-producto');
@@ -172,11 +171,14 @@ $(document).ready(function(){
                 var cantidad = $(this).find('.row-cantidad').text();
                 total += cantidad * precio;
             });
-
+            
             console.log(total);
-            $('.row-total').html('$'+total);
+            $('.row-total').html(total);
             $('.row-cliente').html(cliente);
-
+            $('#select-clientes').attr('disabled',true);
+            $('.btn-realizar-compra').attr('disabled',false);
+            $('#select-clientes').formSelect();
+            
             //asignar el evento al boton borrar
             remover_producto();
         }
@@ -201,6 +203,16 @@ function remover_producto(){
         var total = $('.row-total').html();
         $('.row-total').html(total - descontar);
         $(fila).remove();
+
+        //Removiendo el cliente
+        var productos = $('.row-producto');
+        if(productos.length == 0){
+            $('.row-cliente').html('-');
+            $('#select-clientes').attr('disabled',false);
+            $('#select-clientes').prop('selectedIndex',0);
+            $('.btn-realizar-compra').attr('disabled',true);
+            $('#select-clientes').formSelect();
+        }
     });
 }
 //Esta funcion carga los productos de acuerdo a su categoria

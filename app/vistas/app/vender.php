@@ -83,7 +83,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <a href="" class="btn right">Vender</a>
+                        <a href="" class="btn btn-realizar-compra right" disabled><i class="large material-icons left">check</i>Realizar compra</a>
                     </td>
                 </tr>
                 </tbody>
