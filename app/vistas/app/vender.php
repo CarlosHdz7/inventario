@@ -73,6 +73,11 @@
                         0.0
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="4">
+                        <a href="" class="btn right">Vender</a>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>

@@ -192,9 +192,6 @@ function remover_producto(){
 
         var columna = $(this).parent();
         var fila = $(columna).parent();
-        
-        console.log("esta es la cantidad: "+$(fila).find('.row-cantidad').text());
-        console.log("esta es la precio: "+$(fila).find('.row-precio').text());
 
         var cantidad = $(fila).find('.row-cantidad').text();
         var precio = $(fila).find('.row-precio').text();
