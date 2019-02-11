@@ -67,6 +67,14 @@
                 </tr> -->
                 <tr>
                     <td colspan="1">
+                        Cliente
+                    </td>
+                    <td colspan="3" class="row-cliente">
+                        -
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1">
                         Total
                     </td>
                     <td colspan="3" class="row-total">

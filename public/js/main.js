@@ -132,11 +132,11 @@ $(document).ready(function(){
 
 
         if($('#select-clientes').prop('selectedIndex') == 0 || $('#select-categorias').prop('selectedIndex') == 0 || $('#select-productos').prop('selectedIndex') == 0){
-            console.log('error');
+            console.log('error al agregar un prodcuto');
 
         } else {
             console.log('success');
-            var clientes = $('#select-clientes').val();
+            var cliente = $('#select-clientes option:selected').text();
             var producto = $('#select-productos option:selected').text();
             var precio = $('#select-productos option:selected').attr('precio');
             var cantidad = $('#rango-cantidad').val();
@@ -174,7 +174,8 @@ $(document).ready(function(){
             });
 
             console.log(total);
-            $('.row-total').html(total);
+            $('.row-total').html('$'+total);
+            $('.row-cliente').html(cliente);
 
             //asignar el evento al boton borrar
             remover_producto();
