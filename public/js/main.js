@@ -121,24 +121,23 @@ $(document).ready(function(){
     $('#rango-cantidad').on('change',function(){
         $('.badge-cantidad').text($(this).val());
     })
+
     //BOTON PARA AGREGAR LA VENTA
     $('.agregar-venta').on('click',function(){
-        console.log('Clientes: ' + $('#select-clientes').prop('selectedIndex'));
-        console.log('Categorias: ' + $('#select-categorias').prop('selectedIndex'));
-        console.log('Productos: ' + $('#select-productos').prop('selectedIndex'));
-        console.log('Cantidad: ' + $('#rango-cantidad').val());
 
+        //console.log('Clientes: ' + $('#select-clientes').prop('selectedIndex'));
+        //console.log('Categorias: ' + $('#select-categorias').prop('selectedIndex'));
+        //console.log('Productos: ' + $('#select-productos').prop('selectedIndex'));
+        //console.log('Cantidad: ' + $('#rango-cantidad').val());
 
-
-
-        if($('#select-clientes').prop('selectedIndex') == 0 || $('#select-categorias').prop('selectedIndex') == 0 || $('#select-productos').prop('selectedIndex') == 0){
+        if($('#select-clientes').prop('selectedIndex') == 0 || $('#select-categorias').prop('selectedIndex') == 0 || $('#select-productos').prop('selectedIndex') == 0 || $('#rango-cantidad').val() == 0){
             console.log('error al agregar un prodcuto');
 
         } else {
             console.log('success');
-            var cliente = $('#select-clientes option:selected').text();
+            var cliente  = $('#select-clientes option:selected').text();
             var producto = $('#select-productos option:selected').text();
-            var precio = $('#select-productos option:selected').attr('precio');
+            var precio   = $('#select-productos option:selected').attr('precio');
             var cantidad = $('#rango-cantidad').val();
 
             $('#carrito-producto').prepend(
@@ -151,7 +150,6 @@ $(document).ready(function(){
             );
 
             //Resetear la tabla de agregar producto
-            //$('#select-clientes').prop('selectedIndex',0);
             $('#select-categorias').prop('selectedIndex',0);
             $('#select-productos').find('option').remove();
             $('#select-productos').append(
@@ -160,6 +158,7 @@ $(document).ready(function(){
             $('#rango-cantidad').val(0);
             $('.badge-cantidad').text(0);
 
+            //Aplicar cambios a los select
             $('#select-categorias').formSelect();
             $('#select-productos').formSelect();
             
@@ -172,21 +171,28 @@ $(document).ready(function(){
                 total += cantidad * precio;
             });
             
-            console.log(total);
+            //console.log(total);
+            
             $('.row-total').html(total);
             $('.row-cliente').html(cliente);
             $('#select-clientes').attr('disabled',true);
             $('.btn-realizar-compra').attr('disabled',false);
             $('#select-clientes').formSelect();
+
+            //El seteando valores a cero
+            $('#rango-cantidad').attr('min',0);
+            $('#rango-cantidad').attr('max',0);
             
             //asignar el evento al boton borrar
             remover_producto();
         }
     });
 
-    
 }); //fin del on ready
 
+
+
+//FUNCIONES
 //BOTON PARA QUITAR PRODUCTO
 function remover_producto(){
     $('.quitar-producto').on('click',function(e){
@@ -215,6 +221,7 @@ function remover_producto(){
         }
     });
 }
+
 //Esta funcion carga los productos de acuerdo a su categoria
 //Esta se llama desde el evento onchange del select
 function cargar_productos(){
@@ -267,12 +274,12 @@ function cargar_cantidad_range(){
         success: function(json){
             console.log('cantidad de producto: '+json['cantidad']);
 
-            //El valor minimo sera 1 producto
-            $('#rango-cantidad').attr('min',1);
+            //El valor minimo sera 0 producto
+            $('#rango-cantidad').attr('min',0);
             //El valor maximo sera el total de producto en existencia
             $('#rango-cantidad').attr('max',json['cantidad']);
-            $('#rango-cantidad').val(1);
-            $('.badge-cantidad').text(1);
+            $('#rango-cantidad').val(0);
+            $('.badge-cantidad').text(0);
         },
         error:function(){
             console.log("error al obtener la cantidad de un producto");
