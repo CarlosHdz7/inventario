@@ -1,5 +1,6 @@
 $(document).ready(function(){
     //Cargar componentes materialize
+    M.AutoInit();
     $('.sidenav').sidenav();
     $(".dropdown-trigger").dropdown();
     $('.fixed-action-btn').floatingActionButton();
@@ -131,6 +132,10 @@ $(document).ready(function(){
         //console.log('Cantidad: ' + $('#rango-cantidad').val());
 
         if($('#select-clientes').prop('selectedIndex') == 0 || $('#select-categorias').prop('selectedIndex') == 0 || $('#select-productos').prop('selectedIndex') == 0 || $('#rango-cantidad').val() == 0){
+            
+            if($('#rango-cantidad').val() == 0){
+                alert('Se agotaron las existencias');
+            }
             console.log('error al agregar un prodcuto');
 
         } else {
@@ -138,10 +143,12 @@ $(document).ready(function(){
             var cliente  = $('#select-clientes option:selected').text();
             var producto = $('#select-productos option:selected').text();
             var precio   = $('#select-productos option:selected').attr('precio');
+            var id       = $('#select-productos option:selected').val();
             var cantidad = $('#rango-cantidad').val();
 
             $('#carrito-producto').prepend(
                 '<tr class="row-producto">'+
+                '<td class="row-id" hidden>'+id+'</td>'+
                 '<td>'+producto+'</td>'+
                 '<td class="row-precio">'+precio+'</td>'+
                 '<td class="row-cantidad">'+cantidad+'</td>'+
@@ -176,7 +183,7 @@ $(document).ready(function(){
             $('.row-total').html(total);
             $('.row-cliente').html(cliente);
             $('#select-clientes').attr('disabled',true);
-            $('.btn-realizar-compra').attr('disabled',false);
+            $('.btn-realizar-venta').attr('disabled',false);
             $('#select-clientes').formSelect();
 
             //El seteando valores a cero
@@ -186,6 +193,36 @@ $(document).ready(function(){
             //asignar el evento al boton borrar
             remover_producto();
         }
+    });
+
+    $('.btn-realizar-venta').on('click',function(){
+        var id_productos = $('.row-id');
+        var cantidades   = $('.row-cantidad');
+        var links = [];
+
+/*         console.log(id_productos);
+        console.log(cantidades); */
+
+        for(var i = 0; i < cantidades.length; i++){
+            links.push($('#form-agregar-producto').attr('action') + "vender_producto/"+ id_productos[i].textContent +'/'+ cantidades[i].textContent);
+        }
+        
+        for(var i = 0; i < links.length; i++){
+            console.log('Link #'+i+' es: '+links[i])
+            $.ajax({
+                url:links[i],
+                type: 'POST',
+                dataType:'json',
+                success: function(json){
+                    console.log(json);
+                    M.toast({html: 'La venta se realizó correctamente'});
+                },
+                error:function(){
+                    console.log("error al realizar la venta");
+                }
+            });
+        }
+        
     });
 
 }); //fin del on ready
@@ -216,7 +253,7 @@ function remover_producto(){
             $('.row-cliente').html('-');
             $('#select-clientes').attr('disabled',false);
             $('#select-clientes').prop('selectedIndex',0);
-            $('.btn-realizar-compra').attr('disabled',true);
+            $('.btn-realizar-venta').attr('disabled',true);
             $('#select-clientes').formSelect();
         }
     });

@@ -112,4 +112,9 @@
            // return json_encode($producto);
            echo json_encode($cantidad);
         }
+
+        public function vender_producto($id_producto, $cantidad){
+            $respuesta = $this->producto->vender_producto($id_producto, $cantidad);
+            echo json_encode($respuesta);
+        }
     }

@@ -13,7 +13,7 @@
 </head>
 <body>
     
-    <nav class="blue-grey darken-4">
+    <nav class="blue-grey darken-4 z-depth-0">
         <div class="nav-wrapper container">
             <a href="#" class="brand-logo">Inventario</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>

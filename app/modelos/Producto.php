@@ -82,4 +82,25 @@
             $this->db->bind(':id_producto',$id_producto);
             return $this->db->obtenerRegistro();
         }
+
+        public function vender_producto( $id_producto, $cantidad){
+            $this->db->query('SELECT cantidad FROM productos WHERE id = :id_producto');
+            $this->db->bind(':id_producto',$id_producto);
+            $cantidad_actual = $this->db->obtenerRegistros();
+            
+            if($cantidad_actual[0]->cantidad < (int)$cantidad){
+                return false;
+            } else {
+                $nueva_cantidad   = $cantidad_actual[0]->cantidad - (int)$cantidad;
+                $this->db->query("UPDATE productos SET cantidad=:nueva_cantidad WHERE id=:id_producto");
+                $this->db->bind(':id_producto',$id_producto);
+                $this->db->bind(':nueva_cantidad',$nueva_cantidad);
+                if($this->db->execute()){
+                    return true;
+                } else {
+                    return false;
+                }
+
+            }
+        }
     }

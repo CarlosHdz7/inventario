@@ -6,9 +6,10 @@ body{
     background-color: #eceff1;
     width: 100%;
     height:100vh;
-    background-image: url(../img/fondo2.jpg);
+/*     background-image: url(../img/fondo2.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    background-color: #263238 ;
 }
 
 .letras-inicio{
@@ -16,6 +17,7 @@ body{
 }
 .mensaje1{
     font-size: 80px;
+    color:white;
 }
 
 .mensaje2{

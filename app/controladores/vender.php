@@ -9,7 +9,6 @@
 
         public function index(){
 
-
             $clientes = $this->cliente->obtener_clientes2();
             $categorias = $this->categoria->obtener_categorias2();
 
