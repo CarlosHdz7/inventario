@@ -48,7 +48,7 @@
         <!-- CARRITO -->
         <div class="col s12 m6">
             <h4>Carrito<i class="material-icons">shopping_cart</i></h4>
-            <table class="card striped">
+            <table class="card striped responsive-table">
                 <thead>
                 <tr>
                     <th class="col-producto">Producto</th>

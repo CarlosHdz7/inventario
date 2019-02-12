@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
     class Vender extends Controlador{
 
         public function __construct(){

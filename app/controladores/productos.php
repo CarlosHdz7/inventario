@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
     class Productos extends Controlador{
 
         public function __construct(){
