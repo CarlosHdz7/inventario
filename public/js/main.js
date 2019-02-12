@@ -156,18 +156,8 @@ $(document).ready(function(){
                 '</tr>'
             );
 
-            //Resetear la tabla de agregar producto
-            $('#select-categorias').prop('selectedIndex',0);
-            $('#select-productos').find('option').remove();
-            $('#select-productos').append(
-                $("<option disabled selected></option>").val("").html('Seleccione un producto')
-            );
-            $('#rango-cantidad').val(0);
-            $('.badge-cantidad').text(0);
-
-            //Aplicar cambios a los select
-            $('#select-categorias').formSelect();
-            $('#select-productos').formSelect();
+            //resetar los select de las tablas
+            resetear_select()
             
             //CALCULAR EL TOTAL
             var total = 0;
@@ -200,9 +190,6 @@ $(document).ready(function(){
         var cantidades   = $('.row-cantidad');
         var links = [];
 
-/*         console.log(id_productos);
-        console.log(cantidades); */
-
         for(var i = 0; i < cantidades.length; i++){
             links.push($('#form-agregar-producto').attr('action') + "vender_producto/"+ id_productos[i].textContent +'/'+ cantidades[i].textContent);
         }
@@ -216,6 +203,11 @@ $(document).ready(function(){
                 success: function(json){
                     console.log(json);
                     M.toast({html: 'La venta se realizó correctamente'});
+
+                    //resetear los select de las tablas
+                    resetear_select();
+                    resetear_tablas();
+                    $('.row-producto').remove();
                 },
                 error:function(){
                     console.log("error al realizar la venta");
@@ -250,11 +242,7 @@ function remover_producto(){
         //Removiendo el cliente
         var productos = $('.row-producto');
         if(productos.length == 0){
-            $('.row-cliente').html('-');
-            $('#select-clientes').attr('disabled',false);
-            $('#select-clientes').prop('selectedIndex',0);
-            $('.btn-realizar-venta').attr('disabled',true);
-            $('#select-clientes').formSelect();
+            resetear_tablas();
         }
     });
 }
@@ -324,4 +312,27 @@ function cargar_cantidad_range(){
     });
 }
 
+function resetear_select(){
+    //Resetear la tabla de agregar producto
+    $('#select-categorias').prop('selectedIndex',0);
+    $('#select-productos').find('option').remove();
+    $('#select-productos').append(
+        $("<option disabled selected></option>").val("").html('Seleccione un producto')
+    );
+    $('#rango-cantidad').val(0);
+    $('.badge-cantidad').text(0);
+
+    //Aplicar cambios a los select
+    $('#select-categorias').formSelect();
+    $('#select-productos').formSelect();
+}
   
+
+function resetear_tablas(){
+    $('.row-cliente').html('-');
+    $('.row-total').html('0.0');
+    $('#select-clientes').attr('disabled',false);
+    $('#select-clientes').prop('selectedIndex',0);
+    $('.btn-realizar-venta').attr('disabled',true);
+    $('#select-clientes').formSelect();
+}
