@@ -30,6 +30,9 @@ $(document).ready(function(){
     if(title == 'Categorias' || title == 'Productos'){
         $('.btn-administrar-nav').addClass('teal lighten-1');
     }
+    if(title == 'Vender'){
+        $('.btn-vender-nav').addClass('teal lighten-1');
+    }
 
     $('.cantidad').each(function(){
         if(parseInt($(this).text()) > 10){
