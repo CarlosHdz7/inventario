@@ -16,12 +16,14 @@
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="<?php echo RUTA_URL?>/productos/pagina/1"><i class="material-icons left">local_grocery_store</i>Productos</a></li>
         <li><a href="<?php echo RUTA_URL?>/categorias/pagina/1"><i class="material-icons left">dashboard</i>Categorias </a></li>
+        <li><a href="<?php echo RUTA_URL?>/facturas"><i class="material-icons left">format_list_bulleted</i>Facturas </a></li>
     </ul>
 
     <!-- Dropdown Structure 2-->
     <ul id="dropdown2" class="dropdown-content">
         <li><a href="<?php echo RUTA_URL?>/productos/pagina/1"><i class="material-icons left">local_grocery_store</i>Productos</a></li>
         <li><a href="<?php echo RUTA_URL?>/categorias/pagina/1"><i class="material-icons left">dashboard</i>Categorias </a></li>
+        <li><a href="<?php echo RUTA_URL?>/facturas"><i class="material-icons left">format_list_bulleted</i>Facturas </a></li>
     </ul>
 
     <!-- Dropdown Structure 3 -->

@@ -27,7 +27,7 @@ $(document).ready(function(){
     if(title == 'Clientes'){
         $('.btn-clientes-nav').addClass('teal lighten-1');
     }
-    if(title == 'Categorias' || title == 'Productos'){
+    if(title == 'Categorias' || title == 'Productos' || title == 'Facturas'){
         $('.btn-administrar-nav').addClass('teal lighten-1');
     }
     if(title == 'Vender'){
