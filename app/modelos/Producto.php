@@ -103,4 +103,19 @@
 
             }
         }
+
+        public function generar_factura($id_usuario, $total_vendido, $cliente, $productos_vendidos, $fecha_registro){
+            $this->db->query('INSERT INTO facturas (id,id_usuario,cliente,total_vendido,productos_vendidos,fecha_registro) VALUES (null,:id_usuario,:cliente,:total_vendido,:productos_vendidos,:fecha_registro)');
+            $this->db->bind(':id_usuario',$id_usuario);
+            $this->db->bind(':cliente',$cliente);
+            $this->db->bind(':total_vendido',$total_vendido);
+            $this->db->bind(':productos_vendidos',$productos_vendidos);
+            $this->db->bind(':fecha_registro',$fecha_registro);
+ 
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
     }

@@ -4,7 +4,6 @@ USE inventario;
 show tables;
 
 #Tablas
-
 CREATE TABLE usuarios(
 	id int(255) auto_increment PRIMARY KEY,
     nombre varchar(255) not null,
@@ -38,7 +37,6 @@ CREATE TABLE productos(
     FOREIGN KEY (id_categoria) REFERENCES categorias(id)
 )ENGINE=InnoDb;
 
-select p.id, c.categoria, p.producto, p.descripcion, p.cantidad, p.precio from productos  p inner join categorias c on p.id_categoria = c.id;
 
 CREATE TABLE clientes(
 	id int(255) auto_increment PRIMARY KEY,
@@ -50,7 +48,6 @@ CREATE TABLE clientes(
     fecha_registro date not null,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 )ENGINE=InnoDb;
-
 
 CREATE TABLE ventas(
 	id int(255) auto_increment PRIMARY KEY,
@@ -64,11 +61,27 @@ CREATE TABLE ventas(
     FOREIGN KEY (id_cliente) REFERENCES clientes(id)
 )ENGINE=InnoDb;
 
+CREATE TABLE facturas(
+	id int(255) auto_increment PRIMARY KEY,
+	id_usuario int(255),
+    cliente varchar(100),
+    total_vendido float,
+    productos_vendidos varchar(255),
+    fecha_registro date not null
+)ENGINE=InnoDb;
 
-#Datos
 
 select * from clientes;
 
+SET SQL_SAFE_UPDATES = 0;
+delete from clientes;
+SET SQL_SAFE_UPDATES = 1;
+
+select * from productos;
+select * from productos where id_categoria = 1;
+select p.id, c.categoria, p.producto, p.descripcion, p.cantidad, p.precio from productos  p inner join categorias c on p.id_categoria = c.id;
+
+insert into clientes (id,id_usuario,cliente,direccion,email,telefono,fecha_registro) values (null, 1, 'Sin cliente','-','-','-','2019-01-31');
 insert into clientes values (null,'1','Carlos','Colonia bosques del rio','carlos@gmail.com','22584367');
 insert into clientes values (null,'1','Melissa','Colonia las margaritas','melisa@gmail.com','22588888');
 insert into clientes values (null,'1','Andrea','Colonia prados de venecia','andrea@gmail.com','2256278','2019-01-26');

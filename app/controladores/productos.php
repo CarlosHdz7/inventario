@@ -117,4 +117,19 @@
             $respuesta = $this->producto->vender_producto($id_producto, $cantidad);
             echo json_encode($respuesta);
         }
+
+        public function generar_factura($total_vendido, $cliente, $productos_vendidos){
+            
+            $usuario = $this->usuario->obtener_id( $_SESSION['usuario'] );
+            $id_usuario = $usuario['id'];
+            $fecha_registro = date('Y-m-d');
+
+            if($this->producto->generar_factura($id_usuario, $total_vendido, $cliente, $productos_vendidos, $fecha_registro)){
+                $exito = "Factura generada correctamente";                
+                echo json_encode($exito);
+            } else {
+                $error = "Error al generar factura";
+                echo json_encode($error);
+            }
+        }
     }

@@ -152,7 +152,7 @@ $(document).ready(function(){
             $('#carrito-producto').prepend(
                 '<tr class="row-producto">'+
                 '<td class="row-id" hidden>'+id+'</td>'+
-                '<td>'+producto+'</td>'+
+                '<td class="row-nombre-producto">'+producto+'</td>'+
                 '<td class="row-precio">'+precio+'</td>'+
                 '<td class="row-cantidad">'+cantidad+'</td>'+
                 '<td><a class="waves-effect waves-light btn quitar-producto red"><i class="material-icons">delete</i></a></td>'+
@@ -192,6 +192,7 @@ $(document).ready(function(){
         var id_productos = $('.row-id');
         var cantidades   = $('.row-cantidad');
         var links = [];
+        var error = 0;
 
         for(var i = 0; i < cantidades.length; i++){
             links.push($('#form-agregar-producto').attr('action') + "vender_producto/"+ id_productos[i].textContent +'/'+ cantidades[i].textContent);
@@ -214,6 +215,33 @@ $(document).ready(function(){
                 },
                 error:function(){
                     console.log("error al realizar la venta");
+                    error += 1;
+                }
+            });
+        }
+
+        if(error == 0){
+            var total_vendido = $('.row-total').text(); 
+            var cliente  = $('.row-cliente').text(); 
+            var arreglo = $('.row-producto');
+            var productos_vendidos = "";
+
+            $.each(arreglo,function(){
+                var producto = $(this).find('.row-nombre-producto').text();
+                productos_vendidos += producto + ',';
+            });
+
+            var link = $('#form-agregar-producto').attr('action') + "generar_factura/" + total_vendido + "/" + cliente + "/" + productos_vendidos;
+            //console.log(link);
+            $.ajax({
+                url:link,
+                type: 'POST',
+                dataType:'json',
+                success: function(json){
+                    console.log(json);
+                },
+                error:function(){
+                    console.log("error al generar factura");
                 }
             });
         }
@@ -329,7 +357,6 @@ function resetear_select(){
     $('#select-categorias').formSelect();
     $('#select-productos').formSelect();
 }
-  
 
 function resetear_tablas(){
     $('.row-cliente').html('-');
