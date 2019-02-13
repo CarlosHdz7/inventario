@@ -20,7 +20,7 @@
                 <tr>
                     <td><?php echo $factura->id; ?></td>
                     <td><?php echo $factura->cliente; ?></td>
-                    <td><?php echo $factura->productos_vendidos; ?></td>
+                    <td><?php echo str_replace('-',' ',$factura->productos_vendidos); ?></td>
                     <td><?php echo $factura->total_vendido; ?></td>
                     <td><?php echo $factura->fecha_registro; ?></td>
                     <td><a class="waves-effect waves-light btn red  modal-trigger btn-editar-cliente" href="#modal2">Imprimir<i class="material-icons right">print</i></a></td>

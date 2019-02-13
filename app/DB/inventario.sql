@@ -70,6 +70,7 @@ CREATE TABLE facturas(
     fecha_registro date not null
 )ENGINE=InnoDb;
 
+select * from facturas;
 
 select * from clientes;
 

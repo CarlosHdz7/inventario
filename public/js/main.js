@@ -228,7 +228,7 @@ $(document).ready(function(){
 
             $.each(arreglo,function(){
                 var producto = $(this).find('.row-nombre-producto').text();
-                productos_vendidos += producto + ',';
+                productos_vendidos += producto.replace(/ /g,'-') + ',';
             });
 
             var productos_vendidos = productos_vendidos.slice(0, -1);
