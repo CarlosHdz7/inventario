@@ -231,6 +231,8 @@ $(document).ready(function(){
                 productos_vendidos += producto + ',';
             });
 
+            var productos_vendidos = productos_vendidos.slice(0, -1);
+
             var link = $('#form-agregar-producto').attr('action') + "generar_factura/" + total_vendido + "/" + cliente + "/" + productos_vendidos;
             //console.log(link);
             $.ajax({
