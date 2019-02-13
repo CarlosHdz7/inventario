@@ -20,4 +20,9 @@
             return $this->db->obtenerRegistros();
         }
 
+        public function obtener_ventas_totales(){
+            $this->db->query('SELECT SUM(total_vendido) AS total FROM facturas');
+            return $this->db->obtenerRegistro();
+        }
+
     }

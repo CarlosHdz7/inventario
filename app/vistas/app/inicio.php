@@ -4,10 +4,10 @@
         <div class="box card-panel">
             <div class="teal accent-4 box-icon">
                 <i class="medium material-icons">attach_money</i>
-                <p>Ventas</p>
+                <p>Ventas Mensuales</p>
             </div>
             <div class="box-icon">
-                <p>$235.00</p>
+                <p><?php echo round($datos['ventas'],2);?></p>
             </div>
         </div>
         <div class="box card-panel">
