@@ -70,10 +70,11 @@ CREATE TABLE facturas(
     fecha_registro date not null
 )ENGINE=InnoDb;
 
+select sum(total_vendido) as total_ventas from facturas;
 select * from facturas;
-
 select * from clientes;
-
+select * from productos;
+select * from productos where cantidad <= 10;
 SET SQL_SAFE_UPDATES = 0;
 delete from clientes;
 SET SQL_SAFE_UPDATES = 1;
