@@ -118,4 +118,9 @@
                 return false;
             }
         }
+
+        public function productos_agotados(){
+            $this->db->query('SELECT p.producto,c.categoria, p.cantidad FROM productos p INNER JOIN categorias c ON p.id_categoria = c.id WHERE cantidad <= 10');
+            return $this->db->obtenerRegistros();
+        }
     }

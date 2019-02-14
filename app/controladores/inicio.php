@@ -6,6 +6,7 @@
             $this->categoria = $this->modelo('Categoria');
             $this->producto  = $this->modelo('Producto');
             $this->factura  = $this->modelo('Factura');
+            $this->usuario = $this->modelo('Usuario');
         }
 
         public function index(){
@@ -13,12 +14,16 @@
             $categorias = $this->categoria->total_categorias();
             $productos  = $this->producto->total_productos();
             $ventas     = $this->factura->obtener_ventas_totales();
+            $agotados   = $this->producto->productos_agotados();
+            $usuario    = $_SESSION['usuario'];
 
             $datos= [
+                'usuario'    => $usuario,
                 'clientes'   => $clientes['total'],
                 'categorias' => $categorias['total'],
                 'productos'  => $productos['total'],
                 'ventas'     => $ventas['total'],
+                'agotados'   => $agotados,
                 'titulo'     => 'Inicio'
             ];
 
