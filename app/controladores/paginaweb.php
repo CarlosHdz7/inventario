@@ -32,11 +32,11 @@ class Paginaweb extends Controlador{
 
         if($_SERVER['REQUEST_METHOD'] ==  "POST"){
                 
-            $nombre   = filter_var(trim($_POST['nombre']),'FILTER_SANITIZE_SPECIAL_CHARS');
-            $apellido = filter_var(trim($_POST['apellido']),'FILTER_SANITIZE_SPECIAL_CHARS');
-            $usuario  = filter_var(trim($_POST['usuario']),'FILTER_SANITIZE_SPECIAL_CHARS');
-            $email    = filter_var(trim($_POST['email']),'FILTER_SANITIZE_SPECIAL_CHARS');
-            $password = filter_var(trim($_POST['pass']),'FILTER_SANITIZE_SPECIAL_CHARS');
+            $nombre   = filter_var(trim($_POST['nombre']),FILTER_SANITIZE_SPECIAL_CHARS);
+            $apellido = filter_var(trim($_POST['apellido']),FILTER_SANITIZE_SPECIAL_CHARS);
+            $usuario  = filter_var(trim($_POST['usuario']),FILTER_SANITIZE_SPECIAL_CHARS);
+            $email    = filter_var(trim($_POST['email']),FILTER_SANITIZE_SPECIAL_CHARS);
+            $password = filter_var(trim($_POST['pass']),FILTER_SANITIZE_SPECIAL_CHARS);
             $fecha_registro = date('Y-m-d');
             
             if($nombre == "" || $apellido == "" || $usuario == "" || $email == "" || $password == "" || $fecha_registro == ""){

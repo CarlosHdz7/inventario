@@ -18,14 +18,16 @@
         } */
 
         public function pagina($pagina = null){
-            //variables
-            $total_registros;
-            $cantidad_paginas = 5;
-            $desde;
-            $total_paginas;
+            //variables para obtener las filas
+            $cantidad_paginas = 5; //limit
+            $desde;                //row_start 
+            $total_paginas;        //last      
+            $total_clientes = $this->cliente->total_clientes(); 
+            $links = 2;     
 
-
-            $total_clientes = $this->cliente->total_clientes();      
+            //variables para obtener la cantidad de links
+            $start;
+            $end;
 
             if($pagina == null or $pagina == 0){
                 $pagina = 1;
@@ -37,11 +39,25 @@
             $total_paginas = ceil( $total_clientes['total'] / $cantidad_paginas );
 
             $clientes = $this->cliente->obtener_clientes( $desde, $cantidad_paginas );
+
+            if( ($pagina - $links) > 0){
+                $start = $pagina - $links;
+            } else {
+                $start = 1;
+            }
+
+            if( ($pagina + $links) < $total_paginas){
+                $end = $pagina + $links;
+            } else {
+                $end = $total_paginas;
+            }
             
             $datos= [
                 'clientes'      => $clientes,
                 'total_paginas' => $total_paginas,
                 'pagina'        => $pagina,
+                'start'         => $start,
+                'end'           => $end,
                 'titulo'        => 'Clientes'
             ];
 
