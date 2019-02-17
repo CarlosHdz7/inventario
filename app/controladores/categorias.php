@@ -14,13 +14,15 @@
 
         public function pagina($pagina = null){
             //variables
-            $total_registros;
             $cantidad_paginas = 5;
             $desde;
             $total_paginas;
-
-
             $total_categorias = $this->categoria->total_categorias();      
+            $links = 2;
+
+            //variables para obtener la cantidad de links
+            $start;
+            $end;
 
             if($pagina == null or $pagina == 0){
                 $pagina = 1;
@@ -33,10 +35,24 @@
 
             $categorias = $this->categoria->obtener_categorias( $desde, $cantidad_paginas );
             
+            if( ($pagina - $links) > 0){
+                $start = $pagina - $links;
+            } else {
+                $start = 1;
+            }
+
+            if( ($pagina + $links) < $total_paginas){
+                $end = $pagina + $links;
+            } else {
+                $end = $total_paginas;
+            }
+
             $datos= [
                 'categorias'    => $categorias,
                 'total_paginas' => $total_paginas,
                 'pagina'        => $pagina,
+                'start'         => $start,
+                'end'           => $end,
                 'titulo'        => 'Categorias'
             ];
 
