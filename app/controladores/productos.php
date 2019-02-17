@@ -9,13 +9,15 @@
 
         public function pagina($pagina = null){
             //variables
-            $total_registros;
             $cantidad_paginas = 5;
             $desde;
             $total_paginas;
-
-
             $total_productos = $this->producto->total_productos();      
+            $links = 2;
+
+            //variables para obtener la cantidad de links
+            $start;
+            $end;
 
             if($pagina == null or $pagina == 0){
                 $pagina = 1;
@@ -29,11 +31,25 @@
             $productos = $this->producto->obtener_productos( $desde, $cantidad_paginas );
             $categorias = $this->categoria->obtener_categorias2();
             
+            if( ($pagina - $links) > 0){
+                $start = $pagina - $links;
+            } else {
+                $start = 1;
+            }
+
+            if( ($pagina + $links) < $total_paginas){
+                $end = $pagina + $links;
+            } else {
+                $end = $total_paginas;
+            }
+
             $datos= [
                 'productos'      => $productos,
                 'total_paginas' => $total_paginas,
                 'pagina'        => $pagina,
                 'categorias'    => $categorias,
+                'start'         => $start,
+                'end'           => $end,
                 'titulo'        => 'Productos'
             ];
 
