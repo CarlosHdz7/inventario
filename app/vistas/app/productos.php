@@ -73,7 +73,7 @@
                         <label for="producto">Producto</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <select name="categoria">
+                        <select name="categoria" class="categoria-editar">
                             <option value="" disabled selected>Elije una opción</option>
                             <?php foreach($datos['categorias'] as $categoria): ?>
                             <option value="<?php echo $categoria->id;?>"><?php echo $categoria->categoria;?></option>
@@ -139,7 +139,7 @@
             <tr>
                 <td><?php echo $producto->producto; ?></td>
                 <td><?php echo $producto->descripcion; ?></td>
-                <td><?php echo $producto->categoria; ?></td>
+                <td class="id_categoria" id="<?php echo $producto->id_categoria; ?>"><?php echo $producto->categoria; ?></td>
                 <td>$<?php echo $producto->precio; ?></td>
                 <td class="cantidad"><?php echo $producto->cantidad; ?></td>
                 <td class="hide"><?php echo $producto->id; ?></td>

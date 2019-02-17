@@ -34,8 +34,8 @@
     <!-- Navbar -->
     <div class="navbar-fixed">
         <nav class="blue-grey darken-4">
-            <div class="nav-wrapper container">
-            <a href="#!" class="brand-logo"><i class="material-icons left">assignment</i></a>
+            <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Inventario</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a class="btn-inicio-nav" href="<?php echo RUTA_URL?>/app/inicio"><i class="material-icons left">home</i>Inicio</a></li>

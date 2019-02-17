@@ -8,6 +8,10 @@ body{
     height:100vh;
 }
 
+.brand-logo{
+    margin-left: 20px;
+}
+
 .dropdown-content{
     white-space: nowrap; 
 }

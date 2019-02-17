@@ -103,9 +103,14 @@ $(document).ready(function(){
         
         $(".edit-producto").val(columnas[0].innerHTML); //nombre del cliente
         $(".edit-descripcion").val(columnas[1].innerHTML); //nombre del cliente
-        $(".edit-precio").val(columnas[3].innerHTML); //nombre del cliente
+        $(".edit-precio").val(columnas[3].innerHTML.replace('$','')); //nombre del cliente
         $(".edit-cantidad").val(columnas[4].innerHTML); //nombre del cliente
         $(".edit-id").val(columnas[5].innerHTML);   //id del cliente
+        var id_categoria = $(".id_categoria").attr('id');   //id del cliente
+        console.log(id_categoria);
+        $('.categoria-editar').prop('selectedIndex',id_categoria);
+        $('.categoria-editar').formSelect();
+        
     });
 
     //Borrar
