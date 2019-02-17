@@ -10,6 +10,7 @@
         }
 
         public function index(){
+            
             $clientes   = $this->cliente->total_clientes();
             $categorias = $this->categoria->total_categorias();
             $productos  = $this->producto->total_productos();

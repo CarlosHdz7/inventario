@@ -46,11 +46,12 @@
         public function agregar(){
            
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $producto    = trim($_POST['producto']); 
-                $descripcion = trim($_POST['descripcion']);
-                $cantidad    = trim($_POST['cantidad']);
-                $precio      = trim($_POST['precio']);
-                $categoria      = trim($_POST['categoria']);
+                
+                $producto    = filter_var(trim($_POST['producto']),'FILTER_SANITIZE_SPECIAL_CHARS'); 
+                $descripcion = filter_var(trim($_POST['descripcion']),'FILTER_SANITIZE_SPECIAL_CHARS');
+                $cantidad    = filter_var(trim($_POST['cantidad']),'FILTER_SANITIZE_SPECIAL_CHARS');
+                $precio      = filter_var(trim($_POST['precio']),'FILTER_SANITIZE_SPECIAL_CHARS');
+                $categoria   = filter_var(trim($_POST['categoria']),'FILTER_SANITIZE_SPECIAL_CHARS');
                 $fecha_registro = date('Y-m-d');
 
                 if($producto == "" || $descripcion == "" || $cantidad == "" || $precio =="" || $categoria == "" || $fecha_registro == ""){
@@ -72,12 +73,12 @@
         public function editar(){
             
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $id         = trim($_POST['id']);
-                $producto    = trim($_POST['producto']); 
-                $descripcion = trim($_POST['descripcion']);
-                $cantidad    = trim($_POST['cantidad']);
-                $precio      = trim($_POST['precio']);
-                $categoria      = trim($_POST['categoria']);
+                $id          = filter_var(trim($_POST['id']),'FILTER_SANITIZE_SPECIAL_CHARS');
+                $producto    = filter_var(trim($_POST['producto']),'FILTER_SANITIZE_SPECIAL_CHARS'); 
+                $descripcion = filter_var(trim($_POST['descripcion']),'FILTER_SANITIZE_SPECIAL_CHARS');
+                $cantidad    = filter_var(trim($_POST['cantidad']),'FILTER_SANITIZE_SPECIAL_CHARS');
+                $precio      = filter_var(trim($_POST['precio']),'FILTER_SANITIZE_SPECIAL_CHARS');
+                $categoria   = filter_var(trim($_POST['categoria']),'FILTER_SANITIZE_SPECIAL_CHARS');
                 $fecha_registro = date('Y-m-d');
 
                 if($id == "" || $producto == "" || $descripcion == "" || $cantidad == "" || $precio =="" || $categoria == "" || $fecha_registro == ""){
