@@ -70,10 +70,10 @@
         public function agregar(){
            
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $cliente    = filter_var(trim($_POST['cliente']),'FILTER_SANITIZE_SPECIAL_CHARS'); 
-                $email      = filter_var(trim($_POST['email']),'FILTER_SANITIZE_SPECIAL_CHARS');
-                $direccion  = filter_var(trim($_POST['direccion']),'FILTER_SANITIZE_SPECIAL_CHARS');
-                $telefono   = filter_var(trim($_POST['telefono']),'FILTER_SANITIZE_SPECIAL_CHARS');
+                $cliente    = filter_var(trim($_POST['cliente']),FILTER_SANITIZE_SPECIAL_CHARS); 
+                $email      = filter_var(trim($_POST['email']),FILTER_SANITIZE_SPECIAL_CHARS);
+                $direccion  = filter_var(trim($_POST['direccion']),FILTER_SANITIZE_SPECIAL_CHARS);
+                $telefono   = filter_var(trim($_POST['telefono']),FILTER_SANITIZE_SPECIAL_CHARS);
                 $fecha_registro = date('Y-m-d');
 
                 if($cliente == "" || $email == "" || $direccion == "" || $telefono =="" || $fecha_registro == ""){

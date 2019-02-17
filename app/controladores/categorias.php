@@ -64,7 +64,7 @@
         public function agregar(){
            
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $categoria   = filter_var(trim($_POST['categoria']),'FILTER_SANITIZE_SPECIAL_CHARS'); 
+                $categoria   = filter_var(trim($_POST['categoria']),FILTER_SANITIZE_SPECIAL_CHARS); 
 
                 if($categoria == ""){
                     die('Por favor llenar los campos');

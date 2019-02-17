@@ -63,11 +63,11 @@
            
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 
-                $producto    = filter_var(trim($_POST['producto']),'FILTER_SANITIZE_SPECIAL_CHARS'); 
-                $descripcion = filter_var(trim($_POST['descripcion']),'FILTER_SANITIZE_SPECIAL_CHARS');
-                $cantidad    = filter_var(trim($_POST['cantidad']),'FILTER_SANITIZE_SPECIAL_CHARS');
-                $precio      = filter_var(trim($_POST['precio']),'FILTER_SANITIZE_SPECIAL_CHARS');
-                $categoria   = filter_var(trim($_POST['categoria']),'FILTER_SANITIZE_SPECIAL_CHARS');
+                $producto    = filter_var(trim($_POST['producto']),FILTER_SANITIZE_SPECIAL_CHARS); 
+                $descripcion = filter_var(trim($_POST['descripcion']),FILTER_SANITIZE_SPECIAL_CHARS);
+                $cantidad    = filter_var(trim($_POST['cantidad']),FILTER_SANITIZE_SPECIAL_CHARS);
+                $precio      = filter_var(trim($_POST['precio']),FILTER_SANITIZE_SPECIAL_CHARS);
+                $categoria   = filter_var(trim($_POST['categoria']),FILTER_SANITIZE_SPECIAL_CHARS);
                 $fecha_registro = date('Y-m-d');
 
                 if($producto == "" || $descripcion == "" || $cantidad == "" || $precio =="" || $categoria == "" || $fecha_registro == ""){

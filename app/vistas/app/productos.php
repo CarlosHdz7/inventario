@@ -166,13 +166,24 @@
                     <li class=""><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $datos['pagina'] - 1; ?>"><i class="material-icons">chevron_left</i></a></li>
                 <?php endif;?>
 
-                    <?php for($i = 1; $i <= $datos['total_paginas']; $i++){?>
+                    <?php if($datos['start'] > 1):?>
+                        <li class='waves-effect'><a href="<?php echo RUTA_URL?>/productos/pagina/1">1</a></li>
+                        <li class='waves-effect'><i class="material-icons">more_horiz</i></li>
+                    <?php endif;?>
+
+                    <?php for($i = $datos['start']; $i <= $datos['end']; $i++):?>
+
                         <?php if($datos['pagina'] == $i):?>
-                            <li class='waves-effect active teal lighten-1'><a href="<?php echo RUTA_URL?>/clientes/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
+                            <li class='waves-effect active teal lighten-1'><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
                         <?php else:?>
-                                <li class='waves-effect'><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
-                        <?php endif; ?>
-                    <?php };?>
+                            <li class='waves-effect'><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $i; ?>"><?php echo $i?></a></li>
+                        <?php endif;?>
+                    <?php endfor;?>
+
+                    <?php if($datos['end'] < $datos['total_paginas']):?>
+                        <li class='waves-effect'><i class="material-icons">more_horiz</i></li>
+                        <li class='waves-effect'><a href="<?php echo RUTA_URL?>/productos/pagina/<?php echo $datos['total_paginas']; ?>"><?php echo $datos['total_paginas'];?></a></li>
+                    <?php endif;?>
 
                 <?php if($datos['pagina'] == $datos['total_paginas']): ?>
                     <li class="waves-effect disabled"><a><i class="material-icons">chevron_right</i></a></li>
