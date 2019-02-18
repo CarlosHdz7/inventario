@@ -92,9 +92,41 @@ body{
     margin-bottom: 60px;
 }
 
+/*PERFIL*/
+.perfil-info{
+    height: 150px;
+}
 
+.profile-img{
+    width: 100px;
+    height: auto;
+}
 
+.profile-info-container{
+    padding: 10px;
+    padding-top: 15px;
+    margin-bottom: 30px;
+}
 
+.profile-info-username{
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #26a69a;
+}
+
+.profile-info-rol,.badge-rol{
+    display: inline-block;
+}
+
+.badge-rol{
+    color:#fff;
+    border-radius: 3px;
+    padding: 3px;
+    font-size: 12px;
+    margin-left: 10px;
+    background: red;
+}
 
 
 /* Media querys */

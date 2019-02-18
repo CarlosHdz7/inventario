@@ -3,7 +3,7 @@
             <i class="large material-icons blue-grey darken-4">settings_applications</i>
         </a>
         <ul>
-            <li><a class="btn-floating teal lighten-1"><i class="material-icons">account_box</i></a></li>
+            <li><a class="btn-floating teal lighten-1" href="<?php echo RUTA_URL?>/perfil"><i class="material-icons">account_box</i></a></li>
             <li><a class="btn-floating teal lighten-1"><i class="material-icons">build</i></a></li>
         </ul>
     </div>
