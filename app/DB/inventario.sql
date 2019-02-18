@@ -24,6 +24,61 @@ CREATE TABLE categorias(
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 
+select * from categorias;
+
+CREATE TABLE productos(
+	id int(255) auto_increment PRIMARY KEY,
+    id_usuario int(255),
+    id_categoria int(255),
+    producto varchar(100) unique not null,
+    descripcion varchar(255) not null,
+    cantidad int(100),
+    precio float not null,
+    fecha_registro date not null,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id)
+)ENGINE=InnoDb;
+
+select * from productos;
+
+CREATE TABLE clientes(
+	id int(255) auto_increment PRIMARY KEY,
+    id_usuario int(255),
+    cliente varchar(255) not null,
+    direccion varchar(255) null,
+    email varchar(255) null,
+    telefono varchar(15) null,
+    fecha_registro date not null,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+)ENGINE=InnoDb;
+
+select * from clientes; 
+
+CREATE TABLE ventas(
+	id int(255) auto_increment PRIMARY KEY,
+    id_usuario int(255),
+    id_producto int(255),
+    id_cliente int(255),
+    precio float not null,
+    fecha_registro date not null,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+    FOREIGN KEY (id_producto) REFERENCES productos(id),
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id)
+)ENGINE=InnoDb;
+
+select * from ventas;
+
+CREATE TABLE facturas(
+	id int(255) auto_increment PRIMARY KEY,
+	id_usuario int(255),
+    cliente varchar(100),
+    total_vendido float,
+    productos_vendidos varchar(255),
+    fecha_registro date not null
+)ENGINE=InnoDb;
+
+select * from facturas;
+
 insert into categorias (id_usuario,categoria,fecha_registro) values (1,'categoria 1','2019-2-16');
 insert into categorias (id_usuario,categoria,fecha_registro) values (1,'categoria 2','2019-2-16');
 insert into categorias (id_usuario,categoria,fecha_registro) values (1,'categoria 3','2019-2-16');
@@ -86,68 +141,6 @@ insert into categorias (id_usuario,categoria,fecha_registro) values (1,'categori
 insert into categorias (id_usuario,categoria,fecha_registro) values (1,'categoria 60','2019-2-16');
 
 
-
-
-
-CREATE TABLE productos(
-	id int(255) auto_increment PRIMARY KEY,
-    id_usuario int(255),
-    id_categoria int(255),
-    producto varchar(100) unique not null,
-    descripcion varchar(255) not null,
-    cantidad int(100),
-    precio float not null,
-    fecha_registro date not null,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
-    FOREIGN KEY (id_categoria) REFERENCES categorias(id)
-)ENGINE=InnoDb;
-
-
-CREATE TABLE clientes(
-	id int(255) auto_increment PRIMARY KEY,
-    id_usuario int(255),
-    cliente varchar(255) not null,
-    direccion varchar(255) null,
-    email varchar(255) null,
-    telefono varchar(15) null,
-    fecha_registro date not null,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
-)ENGINE=InnoDb;
-
-CREATE TABLE ventas(
-	id int(255) auto_increment PRIMARY KEY,
-    id_usuario int(255),
-    id_producto int(255),
-    id_cliente int(255),
-    precio float not null,
-    fecha_registro date not null,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
-    FOREIGN KEY (id_producto) REFERENCES productos(id),
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id)
-)ENGINE=InnoDb;
-
-CREATE TABLE facturas(
-	id int(255) auto_increment PRIMARY KEY,
-	id_usuario int(255),
-    cliente varchar(100),
-    total_vendido float,
-    productos_vendidos varchar(255),
-    fecha_registro date not null
-)ENGINE=InnoDb;
-
-select sum(total_vendido) as total_ventas from facturas;
-select * from facturas;
-select * from clientes;
-select * from productos;
-select * from productos where cantidad <= 10;
-SET SQL_SAFE_UPDATES = 0;
-delete from clientes;
-SET SQL_SAFE_UPDATES = 1;
-
-select * from productos;
-select * from productos where id_categoria = 1;
-select p.id, c.categoria, p.producto, p.descripcion, p.cantidad, p.precio from productos  p inner join categorias c on p.id_categoria = c.id;
-
 insert into clientes (id,id_usuario,cliente,direccion,email,telefono,fecha_registro) values (null, 1, 'Sin cliente','-','-','-','2019-01-31');
 insert into clientes values (null,'1','Andrea','Colonia prados de venecia','andrea@gmail.com','2256278','2019-01-26');
 insert into clientes values (null,'1','Estefany','Colonia guadalupe','estefany@gmail.com','22588778','2019-01-26');
@@ -198,10 +191,18 @@ insert into clientes values (null,'1','Marta','Colonia prados de veneci','marta@
 insert into clientes values (null,'1','Clari','Colonia prados de veneci','marta@gmail.com','22224478','2019-01-26');
 
 
+/*select sum(total_vendido) as total_ventas from facturas;
+select * from facturas;
+select * from clientes;
+select * from productos;
+select * from productos where cantidad <= 10;
+SET SQL_SAFE_UPDATES = 0;
+delete from clientes;
+SET SQL_SAFE_UPDATES = 1;
 
-
-
-
+select * from clientes;
+select * from productos where id_categoria = 1;
+select p.id, c.categoria, p.producto, p.descripcion, p.cantidad, p.precio from productos  p inner join categorias c on p.id_categoria = c.id;*/
 
 
 
