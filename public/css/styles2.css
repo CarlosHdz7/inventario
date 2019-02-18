@@ -120,12 +120,10 @@ body{
 }
 
 .badge-rol{
-    color:#fff;
     border-radius: 3px;
     padding: 3px;
     font-size: 12px;
     margin-left: 10px;
-    background: red;
 }
 
 .profile-datos, .profile-estadisticas{

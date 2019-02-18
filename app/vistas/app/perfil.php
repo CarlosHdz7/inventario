@@ -6,7 +6,12 @@
         </div>
         <div class="col s12 m10">
             <p class="profile-info-username"><?php echo $datos['info']['usuario'];?></p>
-            <p class="profile-info-rol">Rol:</p><p class="badge-rol">Admin</p>
+
+            <?php if($datos['info']['rol'] == "Admin"):?>
+                <p class="profile-info-rol">Rol:</p><p class="badge-rol red white-text"><?php echo $datos['info']['rol'];?></p>
+            <?php else:?>
+                <p class="profile-info-rol">Rol:</p><p class="badge-rol blue white-text"><?php echo $datos['info']['rol'];?></p>
+            <?php endif;?>
         </div>
     </div>
 
@@ -20,13 +25,13 @@
     </div>
 
     <div class="row estadisticas-datos card-panel">
-        <div class="col s6 ">
+        <div class="col s12 m6">
             <p class="bold">Estadisticas</p>
             <p>Ventas realizadas: 251</p>
             <p>Total vendido: $1235.25</p>
         </div>
 
-        <div class="col s6">
+        <div class="col s12 m6">
             <p class="bold">Contraseña</p>
             <a href="#" class="waves-effect waves-light btn" disabled>Cambiar</a>
         </div>

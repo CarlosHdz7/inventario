@@ -37,6 +37,7 @@ class Paginaweb extends Controlador{
             $usuario  = filter_var(trim($_POST['usuario']),FILTER_SANITIZE_SPECIAL_CHARS);
             $email    = filter_var(trim($_POST['email']),FILTER_SANITIZE_SPECIAL_CHARS);
             $password = filter_var(trim($_POST['pass']),FILTER_SANITIZE_SPECIAL_CHARS);
+            $id_rol   = 2;
             $fecha_registro = date('Y-m-d');
             
             if($nombre == "" || $apellido == "" || $usuario == "" || $email == "" || $password == "" || $fecha_registro == ""){
@@ -53,7 +54,7 @@ class Paginaweb extends Controlador{
                 if($usuarioDB['usuario'] != $usuario){
                     
                     $password = encriptar($password);
-                    if($this->usuario->registrar_usuarios($nombre,$apellido,$usuario,$email,$password,$fecha_registro)){
+                    if($this->usuario->registrar_usuarios($id_rol,$nombre,$apellido,$usuario,$email,$password,$fecha_registro)){
                         $datos = [
                             "exito" => "Usuario registrado con exito!"
                         ];

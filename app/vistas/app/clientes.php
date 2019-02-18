@@ -119,7 +119,7 @@
         <?php if(!empty($datos['clientes'])): ?>
             <?php foreach($datos['clientes'] as $cliente): ?>
                 <?php 
-                    if($cliente->id == 2){
+                    if($cliente->id == 1){
                         continue;
                     }
                 ?>
