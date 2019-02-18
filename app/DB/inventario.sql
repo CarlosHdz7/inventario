@@ -10,7 +10,7 @@ CREATE TABLE roles(
 )ENGINE=InnoDB;
 
 insert into roles (id,rol) values (null,'Admin');
-insert into roles (id,rol) values (null,'vendedor');
+insert into roles (id,rol) values (null,'Vendedor');
 
 CREATE TABLE usuarios(
 	id int(255) auto_increment PRIMARY KEY,
