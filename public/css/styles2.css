@@ -105,7 +105,7 @@ body{
 .profile-info-container{
     padding: 10px;
     padding-top: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .profile-info-username{
@@ -126,6 +126,10 @@ body{
     font-size: 12px;
     margin-left: 10px;
     background: red;
+}
+
+.profile-datos, .profile-estadisticas{
+    margin-bottom: 20px;
 }
 
 
@@ -172,4 +176,8 @@ body{
 .input-field input[type=text]:focus {
     border-bottom: 1px solid #26a69a ;
     box-shadow: 0 1px 0 0 #000;
+}
+
+.bold{
+    font-weight: 700;
 }

@@ -2,14 +2,17 @@
     class Perfil extends Controlador{
 
         public function __construct(){
-
+            $this->usuario = $this->modelo('Usuario');
         }
 
         
         public function index(){
+            $user = $_SESSION['usuario'];
+            $info = $this->usuario->verificar_usuario($user);
+
             $datos = [
-                'usuario'    => $_SESSION['usuario'],
-                'titulo'     => 'Perfil'
+                'info'    => $info,
+                'titulo'  => 'Perfil'
             ];
 
             $this->vista('app/header',$datos);
